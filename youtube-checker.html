@@ -7,13 +7,21 @@
     <meta name="description" content="Instantly check if a YouTube channel is banned, terminated, or shadowbanned. Enter any YouTube channel URL, handle, or ID to get its current status in seconds.">
     <link rel="canonical" href="https://banchcker.org/youtube-checker.html" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/theme.js" defer></script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased">
 
     <!-- Header -->
-    <header class="bg-white dark:bg-gray-800 shadow-sm">
+    <header id="main-header" class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50 transition-shadow duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold text-gray-900 dark:text-white">Ban<span class="text-blue-500">Checker</span></a>
             <button id="theme-toggle" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
