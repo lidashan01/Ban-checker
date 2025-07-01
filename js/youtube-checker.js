@@ -15,22 +15,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const cleanYoutubeIdentifier = (input) => {
         try {
             // If it's a full URL, parse it to get the last significant part
-            if (input.includes('youtube.com')) {
-                const url = new URL(input);
-                // Handle /c/ /user/ and /channel/ formats
-                const pathParts = url.pathname.split('/').filter(p => p);
-                if (pathParts.length > 1) {
-                    return pathParts[1];
-                }
-                // Handle new /@handle format
-                if (url.pathname.startsWith('/@')) {
-                    return url.pathname.substring(1);
+            if (input.includes('youtube.com/')) {
+                const url = new URL(input.startsWith('http') ? input : `https://${input}`);
+                const pathParts = url.pathname.split('/').filter(p => p && p !== 'channel' && p !== 'user' && p !== 'c');
+
+                // The handle or ID is usually the last part of the path
+                if (pathParts.length > 0) {
+                    const identifier = pathParts[pathParts.length - 1];
+                    // New handles start with @, let's return it directly.
+                    if (identifier.startsWith('@')) {
+                        return identifier;
+                    }
+                    return identifier;
                 }
             }
         } catch (e) {
-            // Not a valid URL, just use the input as is
+            // Not a valid URL, fall through to treat as a plain identifier
         }
-        // Return the cleaned input, removing any query parameters
+        // Return the plain input, removing any query parameters, if it's not a URL
         return input.split('?')[0];
     };
 
