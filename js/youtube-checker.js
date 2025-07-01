@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- DOM Elements (using the same IDs as reddit-checker for consistency) ---
+    const usernamesInput = document.getElementById('usernames-input'); // Changed from 'username-input'
     const checkButton = document.getElementById('check-button');
-    const usernameInput = document.getElementById('username-input');
-    const goodAccountsTextarea = document.getElementById('good-accounts');
-    const badAccountsTextarea = document.getElementById('bad-accounts');
-    const resultsSection = document.getElementById('results-section');
-    const resultsOutput = document.getElementById('results-output');
-    const loader = document.getElementById('loader');
+    const loadingSpinner = document.getElementById('loading-spinner'); // Changed from 'loader'
+    const resultsArea = document.getElementById('results-area');     // Changed from 'results-section'
+    const goodAccountsArea = document.getElementById('good-accounts');
+    const badAccountsArea = document.getElementById('bad-accounts');
+    const copyGoodButton = document.getElementById('copy-good-button'); // Added
+    const copyBadButton = document.getElementById('copy-bad-button');   // Added
 
     /**
      * Extracts a usable channel identifier from various YouTube URL formats.
@@ -14,25 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const cleanYoutubeIdentifier = (input) => {
         try {
-            // If it's a full URL, parse it to get the last significant part
             if (input.includes('youtube.com/')) {
                 const url = new URL(input.startsWith('http') ? input : `https://${input}`);
                 const pathParts = url.pathname.split('/').filter(p => p && p !== 'channel' && p !== 'user' && p !== 'c');
-
-                // The handle or ID is usually the last part of the path
                 if (pathParts.length > 0) {
-                    const identifier = pathParts[pathParts.length - 1];
-                    // New handles start with @, let's return it directly.
-                    if (identifier.startsWith('@')) {
-                        return identifier;
-                    }
-                    return identifier;
+                    return pathParts[pathParts.length - 1];
                 }
             }
-        } catch (e) {
-            // Not a valid URL, fall through to treat as a plain identifier
-        }
-        // Return the plain input, removing any query parameters, if it's not a URL
+        } catch (e) { /* Fall through */ }
         return input.split('?')[0];
     };
 
@@ -42,69 +33,79 @@ document.addEventListener('DOMContentLoaded', () => {
      * @returns {Promise<{identifier: string, status: 'good' | 'bad'}>}
      */
     const checkChannelStatus = async (identifier) => {
+        const originalInput = identifier; // Keep original for display
         try {
-            // Our backend function expects the `channel` query parameter
-            const response = await fetch(`/api/check-youtube?channel=${encodeURIComponent(identifier)}`);
-            
-            // The backend returns a clear "good" or "bad" status
+            const cleanedId = cleanYoutubeIdentifier(identifier);
+            const response = await fetch(`/api/check-youtube?channel=${encodeURIComponent(cleanedId)}`);
             if (response.ok) {
                 const data = await response.json();
                 if (data.status === 'good') {
-                    return { identifier, status: 'good' };
+                    return { identifier: originalInput, status: 'good' };
                 }
             }
-            // Any non-ok response or a "bad" status means the channel is not active
-            return { identifier, status: 'bad' };
+            return { identifier: originalInput, status: 'bad' };
         } catch (error) {
             console.error('Error checking channel:', identifier, error);
-            return { identifier, status: 'bad' };
+            return { identifier: originalInput, status: 'bad' };
         }
     };
 
-    checkButton.addEventListener('click', async () => {
-        const usernames = usernameInput.value.split('\\n').map(u => u.trim()).filter(Boolean);
-        if (usernames.length === 0) {
-            return;
-        }
+    /**
+     * Main function to process all usernames.
+     */
+    const handleAccountCheck = async () => {
+        const inputs = usernamesInput.value
+            .split('\\n')
+            .map(u => u.trim())
+            .filter(u => u.length > 0);
 
-        // 1. Show loader and hide previous results
-        resultsSection.classList.remove('hidden');
-        resultsOutput.classList.add('hidden');
-        loader.classList.remove('hidden');
-        goodAccountsTextarea.value = '';
-        badAccountsTextarea.value = '';
+        if (inputs.length === 0) return;
 
-        // 2. Process all channels concurrently
-        const promises = usernames.map(username => {
-            const identifier = cleanYoutubeIdentifier(username);
-            return checkChannelStatus(identifier);
-        });
+        loadingSpinner.classList.remove('hidden');
+        resultsArea.classList.add('hidden');
+        goodAccountsArea.value = '';
+        badAccountsArea.value = '';
 
-        const results = await Promise.allSettled(promises);
+        const checkPromises = inputs.map(checkChannelStatus);
+        const results = await Promise.allSettled(checkPromises);
 
-        // 3. Hide loader and show results
-        loader.classList.add('hidden');
-        resultsOutput.classList.remove('hidden');
-
-        // 4. Populate results textareas
         const goodAccounts = [];
         const badAccounts = [];
 
         results.forEach(result => {
-            if (result.status === 'fulfilled') {
-                const { identifier, status } = result.value;
-                if (status === 'good') {
-                    goodAccounts.push(identifier);
+            if (result.status === 'fulfilled' && result.value) {
+                if (result.value.status === 'good') {
+                    goodAccounts.push(result.value.identifier);
                 } else {
-                    badAccounts.push(identifier);
+                    badAccounts.push(result.value.identifier);
                 }
-            } else {
-                // Handle rejected promises if any (though our function is designed to always resolve)
-                console.error('A promise was rejected:', result.reason);
             }
         });
 
-        goodAccountsTextarea.value = goodAccounts.join('\\n');
-        badAccountsTextarea.value = badAccounts.join('\\n');
-    });
+        goodAccountsArea.value = goodAccounts.join('\\n');
+        badAccountsArea.value = badAccounts.join('\\n');
+        loadingSpinner.classList.add('hidden');
+        resultsArea.classList.remove('hidden');
+    };
+
+    /**
+     * Copies text from a textarea to the clipboard.
+     * @param {HTMLTextAreaElement} textAreaElement - The textarea to copy from.
+     * @param {HTMLButtonElement} buttonElement - The button that was clicked.
+     */
+    const copyToClipboard = (textAreaElement, buttonElement) => {
+        if (!textAreaElement.value) return;
+        navigator.clipboard.writeText(textAreaElement.value).then(() => {
+            const originalText = buttonElement.innerHTML; // Use innerHTML to support icons
+            buttonElement.innerHTML = 'Copied!';
+            setTimeout(() => {
+                buttonElement.innerHTML = originalText;
+            }, 2000);
+        }).catch(err => console.error('Failed to copy text: ', err));
+    };
+
+    // --- Event Listeners ---
+    checkButton.addEventListener('click', handleAccountCheck);
+    if(copyGoodButton) copyGoodButton.addEventListener('click', () => copyToClipboard(goodAccountsArea, copyGoodButton));
+    if(copyBadButton) copyBadButton.addEventListener('click', () => copyToClipboard(badAccountsArea, copyBadButton));
 }); 

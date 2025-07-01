@@ -57,46 +57,46 @@
         <section id="checker-section" class="mt-12 max-w-4xl mx-auto">
             <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
                 <div class="mb-4">
-                    <label for="username-input" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label for="usernames-input" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                         Enter YouTube Channel Handles or URLs (one per line)
                     </label>
-                    <textarea id="username-input" rows="8" class="w-full p-4 bg-gray-100 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="e.g., @GoogleDevelopers&#10;youtube.com/user/PewDiePie&#10;UC_x5XG1OV2P6uZZ5FSM9Ttw"></textarea>
+                    <textarea id="usernames-input" rows="8" class="w-full p-4 bg-gray-100 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="e.g., @GoogleDevelopers&#10;youtube.com/user/PewDiePie&#10;UC_x5XG1OV2P6uZZ5FSM9Ttw"></textarea>
                 </div>
-                <button id="check-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
-                    Check Accounts
+                <button id="check-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center">
+                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    <span>Check Accounts</span>
                 </button>
             </div>
         </section>
 
         <!-- Results Section -->
-        <section id="results-section" class="mt-8 max-w-4xl mx-auto hidden">
-            <div id="loader" class="text-center py-4 hidden">
-                <svg class="animate-spin h-8 w-8 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <p class="mt-2 text-gray-600 dark:text-gray-400">Checking channels... This might take a moment.</p>
-            </div>
+        <div id="loading-spinner" class="hidden mt-8 text-center">
+            <div class="inline-block w-8 h-8 border-4 border-blue-500 dark:border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">Checking accounts...</p>
+        </div>
 
-            <div id="results-output" class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
-                <!-- Good Accounts -->
-                <div>
-                    <h3 class="text-xl font-semibold text-green-600 dark:text-green-400 mb-2">✅ Active Channels</h3>
-                    <div class="relative">
-                        <textarea id="good-accounts" rows="10" class="w-full p-4 bg-green-50 dark:bg-gray-800 border-2 border-green-200 dark:border-green-700 rounded-lg" readonly></textarea>
-                        <button onclick="copyResults('good-accounts')" class="absolute top-2 right-2 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-300 font-semibold py-1 px-2 rounded-md text-sm">Copy</button>
-                    </div>
-                </div>
-                <!-- Bad Accounts -->
-                <div>
-                    <h3 class="text-xl font-semibold text-red-600 dark:text-red-400 mb-2">❌ Banned or Not Found</h3>
-                     <div class="relative">
-                        <textarea id="bad-accounts" rows="10" class="w-full p-4 bg-red-50 dark:bg-gray-800 border-2 border-red-200 dark:border-red-700 rounded-lg" readonly></textarea>
-                        <button onclick="copyResults('bad-accounts')" class="absolute top-2 right-2 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-300 font-semibold py-1 px-2 rounded-md text-sm">Copy</button>
-                    </div>
+        <div id="results-area" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <label for="good-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">✅ Active Channels</label>
+                <textarea id="good-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
+                <div class="flex justify-center mt-2">
+                    <button id="copy-good-button" class="bg-green-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <span>Copy Active Channels</span>
+                    </button>
                 </div>
             </div>
-        </section>
+            <div>
+                <label for="bad-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">❌ Banned or Not Found</label>
+                <textarea id="bad-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
+                <div class="flex justify-center mt-2">
+                    <button id="copy-bad-button" class="bg-red-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        <span>Copy Banned Channels</span>
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <!-- Content/FAQ Section -->
         <section class="mt-16 max-w-4xl mx-auto">
@@ -135,7 +135,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+  
     <script src="js/youtube-checker.js"></script>
 </body>
 </html> 
