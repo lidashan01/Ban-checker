@@ -31,6 +31,17 @@ export async function onRequest(context) {
       },
     });
 
+    // Before trying to parse JSON, check if the request was successful
+    if (!response.ok) {
+        // Twitter API returned an error (e.g., 401 Unauthorized, 400 Bad Request)
+        const errorData = await response.json().catch(() => ({ message: 'Failed to parse error response from Twitter API.' }));
+        const detail = errorData.detail || `Status code: ${response.status}`;
+        return new Response(JSON.stringify({ status: 'error', message: `Twitter API Error: ${detail}` }), {
+            status: 200, // Return 200 so the frontend can parse this error message
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+
     const data = await response.json();
 
     // 4. Interpret the response
