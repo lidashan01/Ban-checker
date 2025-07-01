@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             console.log(`Looking up user ID for: ${username}`);
             
-            const response = await fetch('https://users.roblox.com/v1/usernames/users', {
+            const response = await fetch('/api/check-roblox?endpoint=getUserId', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`Checking status for user ID: ${userId}`);
             
             // First check: Basic profile data
-            const profileResponse = await fetch(`https://users.roblox.com/v1/users/${userId}`);
+            const profileResponse = await fetch(`/api/check-roblox?endpoint=getProfile&userId=${userId}`);
             
             if (!profileResponse.ok) {
                 const errorMessage = `API returned error ${profileResponse.status} for profile`;
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Second check: Try to access friends list (banned accounts will fail here)
             try {
-                const friendsResponse = await fetch(`https://friends.roblox.com/v1/users/${userId}/friends`);
+                const friendsResponse = await fetch(`/api/check-roblox?endpoint=getFriends&userId=${userId}`);
                 
                 // If we can access the friends list, the account is definitely active
                 if (friendsResponse.ok) {
