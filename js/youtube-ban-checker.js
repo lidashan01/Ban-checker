@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const handleAccountCheck = async () => {
         const identifiers = usernamesInput.value
-            .split('\\n')
+            .split('\n')
             .map(u => u.trim())
             .filter(u => u.length > 0);
 
@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // --- UI Updates: Display Results ---
-        goodAccountsArea.value = goodAccounts.join('\\n');
-        badAccountsArea.value = badAccounts.join('\\n');
+        goodAccountsArea.value = goodAccounts.join('\n');
+        badAccountsArea.value = badAccounts.join('\n');
         loadingSpinner.classList.add('hidden');
         resultsArea.classList.remove('hidden');
     };
