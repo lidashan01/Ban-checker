@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkUserStatus = async (username) => {
         try {
             // Using our own serverless function proxy to call the Reddit API.
-            const response = await fetch(`/check-reddit?username=${username}`);
+            const response = await fetch(`/api/check-reddit?username=${username}`);
 
             if (response.ok) {
                 const data = await response.json();
