@@ -1,111 +1,106 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Elements (using the same IDs as reddit-checker for consistency) ---
-    const usernamesInput = document.getElementById('usernames-input'); // Changed from 'username-input'
+    const usernameInput = document.getElementById('username-input');
     const checkButton = document.getElementById('check-button');
-    const loadingSpinner = document.getElementById('loading-spinner'); // Changed from 'loader'
-    const resultsArea = document.getElementById('results-area');     // Changed from 'results-section'
-    const goodAccountsArea = document.getElementById('good-accounts');
-    const badAccountsArea = document.getElementById('bad-accounts');
-    const copyGoodButton = document.getElementById('copy-good-button'); // Added
-    const copyBadButton = document.getElementById('copy-bad-button');   // Added
+    const spinner = document.getElementById('spinner');
+    const buttonText = document.getElementById('button-text');
+    const resultsContainer = document.getElementById('results-container');
+    const activeList = document.getElementById('active-list');
+    const bannedList = document.getElementById('banned-list');
+    const activeCount = document.getElementById('active-count');
+    const bannedCount = document.getElementById('banned-count');
+    const copyActiveButton = document.getElementById('copy-active-button');
+    const copyBannedButton = document.getElementById('copy-banned-button');
 
-    /**
-     * Extracts a usable channel identifier from various YouTube URL formats.
-     * @param {string} input - The raw user input line.
-     * @returns {string} A clean channel handle (@name), ID (UC...), or custom URL name.
-     */
-    const cleanYoutubeIdentifier = (input) => {
-        try {
-            if (input.includes('youtube.com/')) {
-                const url = new URL(input.startsWith('http') ? input : `https://${input}`);
-                const pathParts = url.pathname.split('/').filter(p => p && p !== 'channel' && p !== 'user' && p !== 'c');
-                if (pathParts.length > 0) {
-                    return pathParts[pathParts.length - 1];
-                }
-            }
-        } catch (e) { /* Fall through */ }
-        return input.split('?')[0];
+    const toggleLoading = (isLoading) => {
+        if (isLoading) {
+            checkButton.disabled = true;
+            spinner.classList.remove('hidden');
+            buttonText.textContent = 'Checking...';
+        } else {
+            checkButton.disabled = false;
+            spinner.classList.add('hidden');
+            buttonText.textContent = 'Check Accounts';
+        }
+    };
+
+    const copyToClipboard = (element, button) => {
+        if (!element.value) return;
+        navigator.clipboard.writeText(element.value).then(() => {
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
     };
 
     /**
      * Checks a single YouTube channel's status by calling our backend proxy.
-     * @param {string} identifier - The cleaned channel identifier.
-     * @returns {Promise<{identifier: string, status: 'good' | 'bad'}>}
+     * @param {string} channelIdentifier - The cleaned channel identifier.
+     * @returns {Promise<{identifier: string, status: 'active' | 'banned'}>}
      */
-    const checkChannelStatus = async (identifier) => {
-        const originalInput = identifier; // Keep original for display
+    const checkChannelStatus = async (channelIdentifier) => {
         try {
-            const cleanedId = cleanYoutubeIdentifier(identifier);
-            const response = await fetch(`/api/check-youtube?channel=${encodeURIComponent(cleanedId)}`);
-            if (response.ok) {
-                const data = await response.json();
-                if (data.status === 'good') {
-                    return { identifier: originalInput, status: 'good' };
-                }
+            // The backend can handle various formats, so we don't need complex cleaning
+            const response = await fetch(`/api/check-youtube?channel=${encodeURIComponent(channelIdentifier)}`);
+            if (!response.ok) {
+                // If response is not OK (e.g., 404, 500), treat as banned/not found
+                return { identifier: channelIdentifier, status: 'banned' };
             }
-            return { identifier: originalInput, status: 'bad' };
+            const data = await response.json();
+            // Assuming the API returns { status: 'active' } or { status: 'terminated' }
+            if (data.status === 'active') {
+                return { identifier: channelIdentifier, status: 'active' };
+            }
+            return { identifier: channelIdentifier, status: 'banned' };
         } catch (error) {
-            console.error('Error checking channel:', identifier, error);
-            return { identifier: originalInput, status: 'bad' };
+            console.error(`Error checking channel ${channelIdentifier}:`, error);
+            return { identifier: channelIdentifier, status: 'banned' };
         }
     };
 
     /**
      * Main function to process all usernames.
      */
-    const handleAccountCheck = async () => {
-        const inputs = usernamesInput.value
-            .split('\\n')
-            .map(u => u.trim())
-            .filter(u => u.length > 0);
+    const handleCheck = async () => {
+        const channels = usernameInput.value.split('\\n').map(u => u.trim()).filter(Boolean);
+        if (channels.length === 0) {
+            return;
+        }
 
-        if (inputs.length === 0) return;
+        toggleLoading(true);
+        resultsContainer.classList.add('hidden');
+        activeList.value = '';
+        bannedList.value = '';
 
-        loadingSpinner.classList.remove('hidden');
-        resultsArea.classList.add('hidden');
-        goodAccountsArea.value = '';
-        badAccountsArea.value = '';
+        const promises = channels.map(checkChannelStatus);
+        const results = await Promise.all(promises);
 
-        const checkPromises = inputs.map(checkChannelStatus);
-        const results = await Promise.allSettled(checkPromises);
-
-        const goodAccounts = [];
-        const badAccounts = [];
+        const activeChannels = [];
+        const bannedChannels = [];
 
         results.forEach(result => {
-            if (result.status === 'fulfilled' && result.value) {
-                if (result.value.status === 'good') {
-                    goodAccounts.push(result.value.identifier);
-                } else {
-                    badAccounts.push(result.value.identifier);
-                }
+            if (result.status === 'active') {
+                activeChannels.push(result.identifier);
+            } else {
+                bannedChannels.push(result.identifier);
             }
         });
+        
+        activeList.value = activeChannels.join('\\n');
+        bannedList.value = bannedChannels.join('\\n');
+        activeCount.textContent = activeChannels.length;
+        bannedCount.textContent = bannedChannels.length;
 
-        goodAccountsArea.value = goodAccounts.join('\\n');
-        badAccountsArea.value = badAccounts.join('\\n');
-        loadingSpinner.classList.add('hidden');
-        resultsArea.classList.remove('hidden');
-    };
-
-    /**
-     * Copies text from a textarea to the clipboard.
-     * @param {HTMLTextAreaElement} textAreaElement - The textarea to copy from.
-     * @param {HTMLButtonElement} buttonElement - The button that was clicked.
-     */
-    const copyToClipboard = (textAreaElement, buttonElement) => {
-        if (!textAreaElement.value) return;
-        navigator.clipboard.writeText(textAreaElement.value).then(() => {
-            const originalText = buttonElement.innerHTML; // Use innerHTML to support icons
-            buttonElement.innerHTML = 'Copied!';
-            setTimeout(() => {
-                buttonElement.innerHTML = originalText;
-            }, 2000);
-        }).catch(err => console.error('Failed to copy text: ', err));
+        resultsContainer.classList.remove('hidden');
+        toggleLoading(false);
     };
 
     // --- Event Listeners ---
-    checkButton.addEventListener('click', handleAccountCheck);
-    if(copyGoodButton) copyGoodButton.addEventListener('click', () => copyToClipboard(goodAccountsArea, copyGoodButton));
-    if(copyBadButton) copyBadButton.addEventListener('click', () => copyToClipboard(badAccountsArea, copyBadButton));
+    checkButton.addEventListener('click', handleCheck);
+    copyActiveButton.addEventListener('click', () => copyToClipboard(activeList, copyActiveButton));
+    copyBannedButton.addEventListener('click', () => copyToClipboard(bannedList, copyBannedButton));
 }); 
