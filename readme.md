@@ -1,3 +1,48 @@
+# Welcome to BanChecker.org - Your Free Account Status Check Center
+
+## About Us
+
+Have you ever suspected your social media account of being "shadowbanned" or restricted without reason? Do you need to bulk-check the validity of a group of accounts? `BanChecker.org` is designed to solve these problems.
+
+We offer a series of **free, easy-to-use, and reliable online tools** to help you quickly check the status of your accounts on major social media platforms. Whether you are a content creator, a social media manager, or a regular user, you will find convenient solutions here.
+
+Our website features a clean design, supports light and dark themes, and all our tools support bulk queries to enhance your productivity.
+
+## Tool Features
+
+We currently offer account status checkers for the following platforms:
+
+### 1. Reddit Shadowban Checker
+
+This is one of our core tools. A "shadowban" on Reddit means that your posts and comments are visible only to you, but invisible to everyone else in the community. By calling the Reddit API, this tool can accurately determine whether one or more accounts are **Good**, **Bad / Suspended / Not Found**, or shadowbanned.
+
+- **Link**: [Reddit Shadowban Checker](https://banchecker.org/index.html)
+
+### 2. Roblox Ban Checker
+
+Designed for the Roblox community. If you need to confirm whether a Roblox player account has been banned, simply enter one or more usernames. This tool will quickly return the status of the account as either **Good** or **Banned**.
+
+- **Link**: [Roblox Ban Checker](https://banchecker.org/roblox-checker.html)
+
+### 3. YouTube Ban Checker
+
+A YouTube channel can be terminated for violating community guidelines. This tool helps you check if one or more YouTube channels (via channel ID, username, or custom URL) are **Active** or **Terminated / Not Found**.
+
+- **Link**: [YouTube Ban Checker](https://banchecker.org/youtube-ban-checker.html)
+
+### 4. Twitter (X) Ban Checker
+
+Used to check the status of a Twitter (now X) account. You can enter a user's `@username` to query whether the account is **Active** or **Suspended / Banned / Not Found**.
+
+*   **Please Note**: Due to the strict limitations of the Twitter API policy, the number of calls and permissions for the free tier are very limited. Therefore, the practical usability of this tool may be affected, and we are keeping it for now as a technical demonstration.
+
+- **Link**: [Twitter (X) Ban Checker](https://banchecker.org/twitter-ban-checker.html)
+
+---
+
+We are committed to continuously improving our existing tools and developing new checkers based on user feedback. Thank you for using `BanChecker.org`!
+
+
 # 欢迎来到 BanChecker.org - 您的免费账户状态检测中心
 
 ## 网站简介
