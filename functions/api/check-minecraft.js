@@ -13,44 +13,29 @@ export async function onRequest(context) {
     }
 
     try {
-        const commonHeaders = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
-        };
+        // Use the Ashcon.app API proxy, which is more reliable for server-side requests.
+        const ashconResponse = await fetch(`https://api.ashcon.app/mojang/v2/user/${username}`);
 
-        // Step 1: Get the player's UUID from their username.
-        const uuidResponse = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, {
-            headers: commonHeaders
-        });
-        
-        if (uuidResponse.status === 204 || !uuidResponse.ok) {
-            // 204 No Content means the user was not found.
-            return new Response(JSON.stringify({ status: 'bad', reason: 'User not found' }), {
-                status: 404, // Use 404 to indicate not found
+        if (!ashconResponse.ok) {
+            // If Ashcon returns a non-200 status, it means the user was not found or there was an error.
+            const errorData = await ashconResponse.json();
+            return new Response(JSON.stringify({ status: 'bad', reason: errorData.error || 'User not found' }), {
+                status: ashconResponse.status,
                 headers: { 'Content-Type': 'application/json' },
             });
         }
         
-        const uuidData = await uuidResponse.json();
-        const playerUUID = uuidData.id;
-        const currentName = uuidData.name; // Get the correctly capitalized name
+        const data = await ashconResponse.json();
 
-        // Step 2: Get the player's name history using their UUID.
-        const nameHistoryResponse = await fetch(`https://api.mojang.com/user/profiles/${playerUUID}/names`, {
-            headers: commonHeaders
-        });
-        const nameHistoryData = await nameHistoryResponse.json();
-
-        // Step 3: Assemble the complete profile data.
+        // Assemble the profile data from the Ashcon response.
         const profile = {
             status: 'good',
-            username: currentName,
-            uuid: playerUUID,
-            name_history: nameHistoryData.map(item => ({
-                name: item.name,
-                changedToAt: item.changedToAt || 'Original Name' // Handle the first name case
-            })).reverse(), // Show oldest first
-            // We can construct avatar URLs on the frontend, but providing them here is also an option.
-            // For this implementation, we'll let the frontend handle it to keep the API focused.
+            username: data.username,
+            uuid: data.uuid,
+            name_history: data.username_history.map(item => ({
+                name: item.username,
+                changedToAt: item.changed_at || 'Original Name'
+            })),
         };
 
         return new Response(JSON.stringify(profile), {
@@ -58,8 +43,8 @@ export async function onRequest(context) {
         });
 
     } catch (error) {
-        console.error('Error fetching Minecraft API:', error);
-        return new Response(JSON.stringify({ error: 'Failed to connect to Minecraft API.' }), {
+        console.error('Error fetching Minecraft API via proxy:', error);
+        return new Response(JSON.stringify({ error: 'An unexpected error occurred.' }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' },
         });
