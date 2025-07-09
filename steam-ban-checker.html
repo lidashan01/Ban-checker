@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Ban Checker - Check Steam VAC & Game Bans | BanChecker</title>
+    <meta name="description" content="Use our free Steam Ban Checker to instantly see if a Steam account has a VAC ban, game ban, or community ban. Enter a profile URL, vanity URL, or SteamID64.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z' fill='%232563EB'/%3E%3Cpath d='M41.6667 50L50 58.3333L66.6667 41.6667' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="canonical" href="https://banchecker.org/steam-ban-checker">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-86YPJ0X927"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-86YPJ0X927');
+    </script>
+    
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: {} } }
+    </script>
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-500">
+
+    <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm dark:shadow-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z" fill="#2563EB"/><path d="M41.6667 50L50 58.3333L66.6667 41.6667" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>BanChecker</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <nav class="hidden md:flex gap-2 text-sm">
+                    <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Reddit</a>
+                    <a href="/steam-ban-checker/" class="text-blue-600 dark:text-blue-400 font-semibold px-2 py-2 rounded-md">Steam</a>
+                    <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Minecraft</a>
+                    <a href="/roblox-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Roblox</a>
+                    <a href="/youtube-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">YouTube</a>
+                    <a href="/twitter-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Twitter</a>
+                </nav>
+                <button id="theme-toggle" type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+                    <span class="sr-only">Toggle dark mode</span>
+                    <span id="theme-toggle-circle" class="inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition-transform duration-300 ease-in-out translate-x-0.5 dark:translate-x-5">
+                        <svg id="theme-toggle-dark-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 w-3.5 h-3.5 dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-amber-500 w-3.5 h-3.5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-16">
+        <section id="steam-checker">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Steam Ban Checker</h1>
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">Enter a Steam profile URL, custom vanity URL, or SteamID64 to check for VAC, game, and community bans.</p>
+            </div>
+
+            <div class="mt-12 max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg shadow-lg border border-transparent dark:border-gray-700">
+                    <label for="steam-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Steam Profile / ID</label>
+                    <textarea id="steam-input" rows="5" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="e.g., https://steamcommunity.com/id/gabelogannewell/&#x0a;or gabelogannewell&#x0a;or 76561197960287930"></textarea>
+                    <div class="flex justify-center mt-6">
+                        <button id="check-button" class="bg-blue-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center text-lg">
+                            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            <span>Check Status</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="loading-spinner" class="hidden mt-8 text-center">
+                    <div class="inline-block w-8 h-8 border-4 border-blue-500 dark:border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking Steam accounts...</p>
+                </div>
+
+                <div id="results-area" class="hidden mt-8">
+                    <div id="results-container" class="space-y-4">
+                        <!-- Result cards will be injected here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Understanding Steam Bans</h2>
+            <div class="mt-8 space-y-8 text-left">
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a VAC Ban?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        A VAC (Valve Anti-Cheat) ban is permanent, non-negotiable, and cannot be removed by Steam Support. It is issued when an account is detected using cheats on a VAC-secured server. A VAC ban prevents the user from playing on all VAC-secured servers for the specific game they were banned in.
+                    </p>
+                </div>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a Game Ban?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
+                        A Game Ban is issued by a game's developer for malicious conduct that doesn't fall under VAC-detectable cheating, such as griefing or account boosting. The consequences are determined by the developer, but can range from being locked out of multiplayer to a full game ban.
+                    </p>
+                </div>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How Does This Ban Checker Work?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
+                       Our tool uses the official Steam Web API to check an account's status. We first convert your input (like a custom URL) into a unique 64-bit Steam ID. Then, we query the API for any VAC, Game, Community, or Economy bans associated with that ID and display the results to you.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white dark:bg-gray-800/50 mt-20 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-6 text-center text-gray-500 dark:text-gray-400">
+            <p>&copy; 2025 banchecker.org - All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/theme.js" defer></script>
+    <script src="js/steam-checker.js" defer></script>
+</body>
+</html> 

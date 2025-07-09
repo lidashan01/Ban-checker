@@ -90,7 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // After everything, if we found an error, alert the user.
         if (firstErrorMessage) {
-            alert(`An API error occurred:\n\n${firstErrorMessage}\n\nPlease ensure the TWITTER_BEARER_TOKEN is correctly configured in your Cloudflare project and that the project has been redeployed.`);
+            // alert(`An API error occurred:\n\n${firstErrorMessage}\n\nPlease ensure the TWITTER_BEARER_TOKEN is correctly configured in your Cloudflare project and that the project has been redeployed.`);
+            console.error(`An API error occurred: ${firstErrorMessage}`);
         }
     };
 
