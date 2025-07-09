@@ -14,7 +14,11 @@ export async function onRequest(context) {
 
     try {
         // Step 1: Get the player's UUID from their username.
-        const uuidResponse = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`);
+        const uuidResponse = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, {
+            headers: {
+                'User-Agent': 'BanChecker.org Profile Checker (https://github.com/your-repo-link)'
+            }
+        });
         
         if (uuidResponse.status === 204 || !uuidResponse.ok) {
             // 204 No Content means the user was not found.
@@ -29,7 +33,11 @@ export async function onRequest(context) {
         const currentName = uuidData.name; // Get the correctly capitalized name
 
         // Step 2: Get the player's name history using their UUID.
-        const nameHistoryResponse = await fetch(`https://api.mojang.com/user/profiles/${playerUUID}/names`);
+        const nameHistoryResponse = await fetch(`https://api.mojang.com/user/profiles/${playerUUID}/names`, {
+            headers: {
+                'User-Agent': 'BanChecker.org Profile Checker (https://github.com/your-repo-link)'
+            }
+        });
         const nameHistoryData = await nameHistoryResponse.json();
 
         // Step 3: Assemble the complete profile data.
