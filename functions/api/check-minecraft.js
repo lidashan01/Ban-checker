@@ -13,11 +13,13 @@ export async function onRequest(context) {
     }
 
     try {
+        const commonHeaders = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+        };
+
         // Step 1: Get the player's UUID from their username.
         const uuidResponse = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`, {
-            headers: {
-                'User-Agent': 'BanChecker.org Profile Checker (https://github.com/your-repo-link)'
-            }
+            headers: commonHeaders
         });
         
         if (uuidResponse.status === 204 || !uuidResponse.ok) {
@@ -34,9 +36,7 @@ export async function onRequest(context) {
 
         // Step 2: Get the player's name history using their UUID.
         const nameHistoryResponse = await fetch(`https://api.mojang.com/user/profiles/${playerUUID}/names`, {
-            headers: {
-                'User-Agent': 'BanChecker.org Profile Checker (https://github.com/your-repo-link)'
-            }
+            headers: commonHeaders
         });
         const nameHistoryData = await nameHistoryResponse.json();
 
