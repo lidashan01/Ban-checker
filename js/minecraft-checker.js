@@ -14,16 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
      * @returns {string} - HTML string for the profile card.
      */
     const createProfileCard = (data) => {
-        const uuid = data.id;
+        const uuid = data.uuid; // Use data.uuid instead of data.id
+        const currentName = data.username; // Use data.username instead of data.name
         const nameHistory = data.name_history.map(item => `<li>${item.name}</li>`).join('');
 
         return `
             <div class="bg-white dark:bg-gray-800/50 p-6 rounded-lg shadow-md border border-transparent dark:border-gray-700 minecraft-card">
                 <div class="flex-shrink-0">
-                    <img src="https://visage.surgeplay.com/bust/128/${uuid}" alt="${data.name}'s skin" class="w-20 h-20 rounded-md">
+                    <img src="https://visage.surgeplay.com/bust/128/${uuid}" alt="${currentName}'s skin" class="w-20 h-20 rounded-md">
                 </div>
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white">${data.name}</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white">${currentName}</h3>
                     <div class="mt-2">
                         <p class="text-sm text-gray-500 dark:text-gray-400">UUID:</p>
                         <div class="flex items-center gap-2">
@@ -79,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = await response.json();
                 return createProfileCard(data);
             } else if (response.status === 404) {
+                // The API now returns an object for 404, so we adapt.
                 return createAvailableCard(username);
             } else {
                 return createErrorCard(username);
