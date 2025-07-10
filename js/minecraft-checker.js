@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Elements ---
-    const usernamesInput = document.getElementById('usernames-input');
+    const usernameInput = document.getElementById('username-input'); // Changed from usernames-input
     const checkButton = document.getElementById('check-button');
     const loadingSpinner = document.getElementById('loading-spinner');
     const resultsArea = document.getElementById('results-area');
@@ -14,9 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
      * @returns {string} - HTML string for the profile card.
      */
     const createProfileCard = (data) => {
-        const uuid = data.uuid; // Use data.uuid instead of data.id
-        const currentName = data.username; // Use data.username instead of data.name
-        const nameHistory = data.name_history.map(item => `<li>${item.name}</li>`).join('');
+        const { uuid, username: currentName, name_history } = data;
+        const nameHistoryHTML = name_history.map(item => `<li>${item.name}</li>`).join('');
 
         return `
             <div class="bg-white dark:bg-gray-800/50 p-6 rounded-lg shadow-md border border-transparent dark:border-gray-700 minecraft-card">
@@ -35,12 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="col-span-full mt-4">
                      <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100">Name History:</h4>
-                     <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mt-2">${nameHistory}</ul>
+                     <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mt-2">${nameHistoryHTML}</ul>
                 </div>
             </div>
         `;
     };
-
+    
     /**
      * Creates an HTML element for an available username.
       * @param {string} username - The username that is available.
@@ -69,38 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /**
-     * Fetches player data from the serverless function.
-     * @param {string} username - The Minecraft username.
-     * @returns {Promise<string>} - A promise that resolves to the HTML card for the result.
-     */
-    const checkUser = async (username) => {
-        try {
-            const response = await fetch(`/api/check-minecraft?username=${encodeURIComponent(username)}`);
-            if (response.status === 200) {
-                const data = await response.json();
-                return createProfileCard(data);
-            } else if (response.status === 404) {
-                // The API now returns an object for 404, so we adapt.
-                return createAvailableCard(username);
-            } else {
-                return createErrorCard(username);
-            }
-        } catch (error) {
-            console.error(`Error checking ${username}:`, error);
-            return createErrorCard(username);
-        }
-    };
-
-    /**
      * Main function to handle the check button click.
      */
     const handleCheck = async () => {
-        const usernames = usernamesInput.value
-            .split('\n')
-            .map(u => u.trim())
-            .filter(u => u.length > 0 && u.length <= 16);
+        const username = usernameInput.value.trim();
 
-        if (usernames.length === 0) {
+        if (!username || username.length > 16) {
+            // Maybe add some user feedback here later
             return;
         }
 
@@ -109,23 +83,42 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsArea.innerHTML = '';
         shareText.classList.add('hidden');
 
-        const checkPromises = usernames.map(checkUser);
-        const results = await Promise.allSettled(checkPromises);
-
-        results.forEach(result => {
-            if (result.status === 'fulfilled') {
-                resultsArea.insertAdjacentHTML('beforeend', result.value);
+        try {
+            const response = await fetch(`/api/check-minecraft?username=${encodeURIComponent(username)}`);
+            let resultHTML = '';
+            
+            if (response.status === 200) {
+                const data = await response.json();
+                resultHTML = createProfileCard(data);
+            } else if (response.status === 404) {
+                resultHTML = createAvailableCard(username);
+            } else {
+                resultHTML = createErrorCard(username);
             }
-        });
-        
-        loadingSpinner.classList.add('hidden');
-        resultsArea.classList.remove('hidden');
-        shareText.classList.remove('hidden');
+            resultsArea.innerHTML = resultHTML;
+
+        } catch (error) {
+            console.error(`Error checking ${username}:`, error);
+            resultsArea.innerHTML = createErrorCard(username);
+        } finally {
+            loadingSpinner.classList.add('hidden');
+            resultsArea.classList.remove('hidden');
+            shareText.classList.remove('hidden');
+        }
     };
 
     // --- Event Listeners ---
     if (checkButton) {
         checkButton.addEventListener('click', handleCheck);
+    }
+    
+    // Also allow pressing Enter to trigger the check
+    if (usernameInput) {
+        usernameInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                handleCheck();
+            }
+        });
     }
 
     if (resultsArea) {
