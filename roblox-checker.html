@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Ban Checker for Free | BanChecker</title>
-    <meta name="description" content="Check if a Roblox account is banned, terminated, or in good standing with our free BanChecker tool. ">
+    <title>Free Roblox Ban Checker - Check Roblox Account Status</title>
+    <meta name="description" content="Use our free Roblox Ban Checker to instantly see if a player's account is banned, terminated, or active. Enter a username to check the Roblox account status.">
     <link rel="icon" href="data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z' fill='%232563EB'/%3E%3Cpath d='M41.6667 50L50 58.3333L66.6667 41.6667' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-    <link rel="canonical" href="https://banchecker.org/roblox-checker">
+    <link rel="canonical" href="https://banchecker.org/roblox-checker/">
     <script src="https://cdn.tailwindcss.com"></script>
    
     <!-- Google tag (gtag.js) -->
@@ -38,78 +38,77 @@
         }
     </script>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Add smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
-        }
-        .btn-icon {
-            display: inline-block;
-            width: 1.2em;
-            height: 1.2em;
-            margin-right: 0.5em;
-            vertical-align: middle;
-        }
-    </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-500">
 
     <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm dark:shadow-gray-800 sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
-                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z" fill="#2563EB"/><path d="M41.6667 50L50 58.3333L66.6667 41.6667" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>BanChecker</span>
-            </a>
-            <div class="flex items-center gap-4">
-                <nav class="hidden md:flex gap-2 text-sm">
-                    <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Reddit</a>
-                    <a href="/steam-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Steam</a>
-                    <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Minecraft</a>
-                    <a href="/roblox-checker/" class="text-blue-600 dark:text-blue-400 font-semibold px-2 py-2 rounded-md">Roblox</a>
-                    <a href="/youtube-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">YouTube</a>
-                    <a href="/twitter-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Twitter</a>
-                </nav>
-                <button id="theme-toggle" type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
-                    <span class="sr-only">Toggle dark mode</span>
-                    <span id="theme-toggle-circle" class="inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition-transform duration-300 ease-in-out translate-x-0.5 dark:translate-x-5">
-                        <svg id="theme-toggle-dark-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 w-3.5 h-3.5 dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-amber-500 w-3.5 h-3.5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    </span>
-                </button>
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <a href="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
+                    <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z" fill="#2563EB"/><path d="M41.6667 50L50 58.3333L66.6667 41.6667" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>BanChecker</span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <nav class="hidden md:flex gap-2 text-sm">
+                        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Reddit</a>
+                        <a href="/steam-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Steam</a>
+                        <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Minecraft</a>
+                        <a href="/roblox-checker/" class="text-blue-600 dark:text-blue-400 font-semibold px-3 py-2 rounded-md">Roblox</a>
+                        <a href="/youtube-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">YouTube</a>
+                        <a href="/twitter-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Twitter</a>
+                    </nav>
+                    <button id="theme-toggle" type="button" class="flex-shrink-0 relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+                        <span class="sr-only">Toggle dark mode</span>
+                        <span id="theme-toggle-circle" class="inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition-transform duration-300 ease-in-out translate-x-0.5 dark:translate-x-5">
+                            <svg id="theme-toggle-dark-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 w-3.5 h-3.5 dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                            <svg id="theme-toggle-light-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-amber-500 w-3.5 h-3.5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        </span>
+                    </button>
+                    <button id="mobile-menu-button" type="button" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:hover:bg-gray-800" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Reddit</a>
+                    <a href="/steam-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Steam</a>
+                    <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Minecraft</a>
+                    <a href="/roblox-checker/" class="text-blue-600 dark:text-blue-400 block px-3 py-2 rounded-md text-base font-bold">Roblox</a>
+                    <a href="/youtube-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">YouTube</a>
+                    <a href="/twitter-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Twitter</a>
+                </div>
             </div>
         </div>
     </header>
 
     <main class="container mx-auto px-4 py-8 md:py-16">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">Roblox Ban Checker</h1>
-            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                Check if any Roblox account is banned, terminated, or in good standing. Our free tool provides instant status checks for any username.
-            </p>
-        </div>
-
         <section id="roblox-checker" class="scroll-mt-24">
             <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Roblox Account Status Checker</h2>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">Enter one or more Roblox usernames (one per line) to check their status.</p>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Free Roblox Ban Checker</h1>
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                    Our free Roblox Ban Checker helps you determine if a player's account is active, banned, or terminated. To use this Roblox Ban Checker, enter one or more usernames in the box below, one per line, and click "Check Accounts."
+                </p>
             </div>
 
             <div class="mt-12 max-w-4xl mx-auto">
                 <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg shadow-lg border border-transparent dark:border-gray-700">
                     <label for="usernames-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Roblox Usernames</label>
-                    <textarea id="usernames-input" rows="8" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="Enter one username per line"></textarea>
+                    <textarea id="usernames-input" rows="8" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="Enter one username per line, e.g.,&#x0a;Roblox&#x0a;Builderman"></textarea>
                     <div class="flex justify-center mt-4">
                         <button id="check-button" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                             <span>Check Accounts</span>
                         </button>
                     </div>
                 </div>
                 
                 <div id="loading-spinner" class="hidden mt-8 text-center">
-                    <!-- Simple spinner -->
                     <div class="inline-block w-8 h-8 border-4 border-blue-500 dark:border-blue-400 border-t-transparent rounded-full animate-spin"></div>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking accounts...</p>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking Roblox accounts...</p>
                 </div>
 
                 <div id="results-area" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -118,53 +117,75 @@
                         <textarea id="good-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
                         <div class="flex justify-center mt-2">
                             <button id="copy-good-button" class="bg-green-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                                 <span>Copy Active Accounts</span>
                             </button>
                         </div>
                     </div>
                     <div>
-                        <label for="bad-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Banned / Not Found</label>
+                        <label for="bad-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Banned / Terminated / Not Found</label>
                         <textarea id="bad-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
                         <div class="flex justify-center mt-2">
                             <button id="copy-bad-button" class="bg-red-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                                 <span>Copy Banned Accounts</span>
                             </button>
                         </div>
                     </div>
                 </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">Found this Roblox Ban Checker useful? Please consider sharing it with your friends!</p>
+            </div>
+        </section>
+
+        <section id="about-tool" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">About Roblox Ban Checker</h2>
+            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a Roblox Ban Checker?</h3>
+                    <p class="mt-2">A Roblox Ban Checker is an essential tool for players who want to verify the status of a Roblox account. It can tell you if an account is currently active and playable, or if it has been banned or terminated by Roblox moderators. Whether you're checking your own account, a friend's, or a trader's, our Roblox Ban Checker provides a quick and accurate status report.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Use This Tool</h3>
+                    <ol class="list-decimal list-inside mt-2 space-y-1">
+                        <li><strong>Enter Usernames:</strong> Type or paste one or more Roblox usernames into the input box above. Make sure each username is on a new line.</li>
+                        <li><strong>Start the Check:</strong> Click the "Check Accounts" button.</li>
+                        <li><strong>View Results:</strong> Our Roblox Ban Checker will process the list and sort the accounts into "Active Accounts" and "Banned / Terminated / Not Found".</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Why Do Roblox Accounts Get Banned?</h3>
+                    <p class="mt-2">Roblox is committed to its Community Standards, and accounts are banned for violations. Common reasons include harassment or bullying, cheating or exploiting glitches, scamming other users, or creating inappropriate content (e.g., models, decals, or game elements). Using a Roblox Ban Checker can help you ensure you're interacting with reputable players.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Appeal a Roblox Ban</h3>
+                    <p class="mt-2">If you think your account was unfairly banned or terminated, you can appeal the decision through the official Roblox support channels. Visit the <a href="https://www.roblox.com/support" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Roblox Support page</a> and fill out the form with all the necessary details about your account and the moderation action. Be honest and clear in your appeal for the best chance of a successful review.</p>
+                </div>
             </div>
         </section>
 
         <section id="faq" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Understanding Roblox Bans</h2>
-            <div class="mt-8 space-y-8 text-left">
-                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a Roblox Ban?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        Roblox has several types of account restrictions. A temporary ban limits your access for a set period (1-7 days typically). A permanent ban or account deletion is more severe and means your account has been terminated for serious violations of Roblox's Terms of Service. When banned, you cannot access your account, play games, or use Roblox features.
-                    </p>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Frequently Asked Questions</h2>
+            <div class="mt-8 space-y-6">
+                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this Roblox Ban Checker free to use?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, absolutely. Our Roblox Ban Checker is 100% free to use. We aim to provide valuable tools for the gaming community without any cost.</p>
                 </div>
-                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How Does This Roblox Ban Checker Work?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        Our tool uses Roblox's API to check the status of accounts. We first convert the username to a Roblox ID, then query the user's profile data. Based on the response, we can determine if the account is active, banned, or doesn't exist. This provides a quick and reliable way to check multiple accounts at once without having to manually search for each one.
-                    </p>
+                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Do you store the usernames I enter?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">No. We respect your privacy. All checks are performed in real-time, and we do not log, store, or share any of the usernames you enter into our checker.</p>
                 </div>
-                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Common Reasons for Roblox Bans</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        Roblox may ban accounts for various reasons including: inappropriate chat behavior, exploiting or hacking, scamming other users, online dating, account theft, or repeatedly violating community guidelines. The severity of the ban depends on the nature of the violation and whether it's a first-time or repeat offense.
-                    </p>
-                </div>
-                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What To Do If You Are Banned?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        If you believe your account was banned by mistake, you can appeal the decision through Roblox's support system. Visit <a href="https://www.roblox.com/support" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Roblox Support</a> and submit an appeal with your account details. Be honest and polite in your explanation. For temporary bans, sometimes waiting for the ban period to end is the only option. Remember that creating new accounts to evade bans is against Roblox's rules.
-                    </p>
+                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How accurate is this tool?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Our tool uses official Roblox API endpoints to check user profiles. This means the information is highly accurate and reflects the real-time status of an account. If our Roblox Ban Checker says an account is banned, it is currently not accessible to the public.</p>
                 </div>
             </div>
+        </section>
+
+        <section id="about-banchecker" class="mt-20 max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">About BanChecker.org</h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                BanChecker.org is a free suite of tools designed to help you check the status of your online accounts across various platforms. From our Roblox Ban Checker to tools for Reddit, Steam, and more, our goal is to provide simple, fast, and reliable solutions. We believe in free and accessible tools for online communities. If you find our work helpful, please consider sharing <a href="/" class="text-blue-600 dark:text-blue-400 hover:underline">BanChecker.org</a> with your friends and communities. Your support is our greatest motivation to keep improving and adding new checkers!
+            </p>
         </section>
     </main>
 
@@ -175,6 +196,7 @@
     </footer>
 
     <script src="js/theme.js" defer></script>
+    <script src="js/main.js" defer></script>
     <script src="js/roblox-checker.js" defer></script>
 </body>
 </html> 

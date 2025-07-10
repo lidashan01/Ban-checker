@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Ban Checker | Check Channel Status</title>
-    <meta name="description" content="Use our free tool to instantly check if a YouTube channel is active, terminated, or banned. Enter any channel ID, handle, or URL to verify its status.">
+    <title>Free YouTube Ban Checker - Check Channel Termination</title>
+    <meta name="description" content="Use our free YouTube Ban Checker to instantly see if a channel is active or has been terminated for community guideline or copyright violations.">
     <link rel="icon" href="data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z' fill='%232563EB'/%3E%3Cpath d='M41.6667 50L50 58.3333L66.6667 41.6667' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-    <link rel="canonical" href="https://banchecker.org/youtube-ban-checker.html">
+    <link rel="canonical" href="https://banchecker.org/youtube-ban-checker/">
     <script src="https://cdn.tailwindcss.com"></script>
    
     <!-- Google tag (gtag.js) -->
@@ -38,78 +38,77 @@
         }
     </script>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Add smooth scrolling for anchor links */
-        html {
-            scroll-behavior: smooth;
-        }
-        .btn-icon {
-            display: inline-block;
-            width: 1.2em;
-            height: 1.2em;
-            margin-right: 0.5em;
-            vertical-align: middle;
-        }
-    </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-500">
 
     <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm dark:shadow-gray-800 sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
-                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z" fill="#2563EB"/><path d="M41.6667 50L50 58.3333L66.6667 41.6667" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>BanChecker</span>
-            </a>
-            <div class="flex items-center gap-4">
-                <nav class="hidden md:flex gap-2 text-sm">
-                    <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Reddit</a>
-                    <a href="/steam-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Steam</a>
-                    <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Minecraft</a>
-                    <a href="/roblox-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Roblox</a>
-                    <a href="/youtube-ban-checker/" class="text-blue-600 dark:text-blue-400 font-semibold px-2 py-2 rounded-md">YouTube</a>
-                    <a href="/twitter-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-2 py-2 rounded-md">Twitter</a>
-                </nav>
-                <button id="theme-toggle" type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
-                    <span class="sr-only">Toggle dark mode</span>
-                    <span id="theme-toggle-circle" class="inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition-transform duration-300 ease-in-out translate-x-0.5 dark:translate-x-5">
-                        <svg id="theme-toggle-dark-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 w-3.5 h-3.5 dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-amber-500 w-3.5 h-3.5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    </span>
-                </button>
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <a href="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
+                    <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z" fill="#2563EB"/><path d="M41.6667 50L50 58.3333L66.6667 41.6667" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>BanChecker</span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <nav class="hidden md:flex gap-2 text-sm">
+                        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Reddit</a>
+                        <a href="/steam-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Steam</a>
+                        <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Minecraft</a>
+                        <a href="/roblox-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Roblox</a>
+                        <a href="/youtube-ban-checker/" class="text-blue-600 dark:text-blue-400 font-semibold px-3 py-2 rounded-md">YouTube</a>
+                        <a href="/twitter-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Twitter</a>
+                    </nav>
+                    <button id="theme-toggle" type="button" class="flex-shrink-0 relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+                        <span class="sr-only">Toggle dark mode</span>
+                        <span id="theme-toggle-circle" class="inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition-transform duration-300 ease-in-out translate-x-0.5 dark:translate-x-5">
+                            <svg id="theme-toggle-dark-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 w-3.5 h-3.5 dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                            <svg id="theme-toggle-light-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-amber-500 w-3.5 h-3.5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        </span>
+                    </button>
+                    <button id="mobile-menu-button" type="button" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:hover:bg-gray-800" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Reddit</a>
+                    <a href="/steam-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Steam</a>
+                    <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Minecraft</a>
+                    <a href="/roblox-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Roblox</a>
+                    <a href="/youtube-ban-checker/" class="text-blue-600 dark:text-blue-400 block px-3 py-2 rounded-md text-base font-bold">YouTube</a>
+                    <a href="/twitter-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Twitter</a>
+                </div>
             </div>
         </div>
     </header>
 
     <main class="container mx-auto px-4 py-8 md:py-16">
-        <div class="max-w-3xl mx-auto text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">YouTube Channel Ban Checker</h1>
-            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                Welcome to BanChecker.org, your reliable source for checking account statuses. Our free ban checker tools help you see if a YouTube channel is active or has been terminated. Start by using our <a href="#youtube-checker" class="text-blue-600 dark:text-blue-400 hover:underline">YouTube ban checker</a> below.
-            </p>
-        </div>
-
         <section id="youtube-checker" class="scroll-mt-24">
             <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">YouTube Ban & Termination Checker</h2>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">Enter one or more YouTube channel identifiers (one per line) to check their status.</p>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Free YouTube Ban Checker</h1>
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                    Our free YouTube Ban Checker helps you determine if a channel is active or has been terminated by YouTube. To use this checker, enter one or more channel identifiers (URL, handle, or ID) below, one per line, and click "Check Accounts."
+                </p>
             </div>
 
             <div class="mt-12 max-w-4xl mx-auto">
                 <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg shadow-lg border border-transparent dark:border-gray-700">
                     <label for="usernames-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter YouTube Channel Identifiers</label>
-                    <textarea id="usernames-input" rows="8" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="e.g., @GoogleDevelopers&#10;youtube.com/user/PewDiePie&#10;UC_x5XG1OV2P6uZZ5FSM9Ttw"></textarea>
+                    <textarea id="usernames-input" rows="8" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="e.g., @GoogleDevelopers&#x0a;youtube.com/user/PewDiePie&#x0a;UC_x5XG1OV2P6uZZ5FSM9Ttw"></textarea>
                     <div class="flex justify-center mt-4">
                         <button id="check-button" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                             <span>Check Accounts</span>
                         </button>
                     </div>
                 </div>
                 
                 <div id="loading-spinner" class="hidden mt-8 text-center">
-                    <!-- Simple spinner -->
                     <div class="inline-block w-8 h-8 border-4 border-blue-500 dark:border-blue-400 border-t-transparent rounded-full animate-spin"></div>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking accounts...</p>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking YouTube channels...</p>
                 </div>
 
                 <div id="results-area" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -118,47 +117,79 @@
                         <textarea id="good-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
                         <div class="flex justify-center mt-2">
                             <button id="copy-good-button" class="bg-green-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                                 <span>Copy Active Channels</span>
                             </button>
                         </div>
                     </div>
                     <div>
-                        <label for="bad-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Banned / Terminated / Not Found</label>
+                        <label for="bad-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Terminated / Not Found</label>
                         <textarea id="bad-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
                         <div class="flex justify-center mt-2">
                             <button id="copy-bad-button" class="bg-red-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                                 <span>Copy Banned Channels</span>
                             </button>
                         </div>
                     </div>
                 </div>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">Found this YouTube Ban Checker useful? Please consider sharing it with your friends!</p>
+            </div>
+        </section>
+
+        <section id="about-tool" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">About YouTube Ban Checker</h2>
+            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a YouTube Ban Checker?</h3>
+                    <p class="mt-2">A YouTube Ban Checker is a tool that verifies if a YouTube channel is publicly accessible or has been terminated. Channel termination is YouTube's most severe penalty, permanently removing all of a user's videos and their channel page. Our YouTube Ban Checker helps you quickly determine a channel's status, which is useful for creators checking their own standing or for users verifying the existence of a channel.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Use This Tool</h3>
+                    <ol class="list-decimal list-inside mt-2 space-y-1">
+                        <li><strong>Enter Channel Identifier:</strong> Type or paste one or more YouTube channel identifiers into the input box. This can be a channel URL, a handle (e.g., @handle), or a channel ID (e.g., UC...).</li>
+                        <li><strong>Start the Check:</strong> Click the "Check Accounts" button.</li>
+                        <li><strong>View Results:</strong> Our YouTube Ban Checker will sort the inputs into "Active Channels" and "Terminated / Not Found," showing you the status of each.</li>
+                    </ol>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Why Do YouTube Channels Get Terminated?</h3>
+                    <p class="mt-2">YouTube terminates channels for severe or repeated violations of its policies. The most common reasons are receiving three <a href="https://support.google.com/youtube/answer/2814000" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Community Guideline strikes</a> or multiple <a href="https://support.google.com/youtube/answer/2814000" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">copyright strikes</a>. A single case of severe abuse, such as predatory behavior or spam, can also lead to immediate termination. Our YouTube Ban Checker can help diagnose if a channel has been removed for these reasons.</p>
+                </div>
+                 <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Appeal a Channel Termination</h3>
+                    <p class="mt-2">If you believe your channel was terminated in error, you can appeal the decision. You must use the <a href="https://support.google.com/youtube/answer/2802168" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">channel termination appeal form</a>. Do not submit multiple appeals. Provide as much detail as possible to support your case. If the termination was related to copyright strikes, you may need to resolve those claims directly with the copyright holders.</p>
+                </div>
             </div>
         </section>
 
         <section id="faq" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">About the YouTube Ban Checker</h2>
-            <div class="mt-8 space-y-8 text-left">
-                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How Does This Ban Checker Work?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        Our tool checks for channel terminations by using the official YouTube Data API. When you enter a channel's identifier (like its handle, custom URL, or ID), we send a request to the API. A successful response means the channel is active. If the API reports that the channel cannot be found, it is flagged as "Banned or Not Found." This typically means the channel was removed by YouTube for policy violations or deleted by the owner.
-                    </p>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Frequently Asked Questions</h2>
+            <div class="mt-8 space-y-6">
+                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this YouTube Ban Checker free to use?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, our YouTube Ban Checker is completely free. We are committed to providing simple and effective tools for online communities.</p>
                 </div>
-                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What's the difference between Banned and Deleted?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        From an API perspective, there's often no difference. Both result in the channel being inaccessible and will be flagged by our tool. A "banned" or "terminated" channel is removed by YouTube, while a "deleted" channel is removed by the creator.
-                    </p>
+                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Do you store the channels I check?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">No. Your privacy is a priority. We do not log, save, or share any of the channel identifiers you enter into our tool.</p>
                 </div>
-                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Can this tool detect "shadowbans"?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300 leading-relaxed">
-                        "Shadowbanning" on YouTube (where a channel's reach is secretly reduced) is not an official status that the API can report. Our tool can only check for explicit bans or terminations where the channel is fully removed from public view.
-                    </p>
+                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How accurate is this tool?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">This tool uses the official YouTube Data API to check channel status, so it is highly accurate. If our YouTube Ban Checker says a channel is terminated, it reflects the channel's current public status on the platform.</p>
+                </div>
+                 <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Can this tool see if a single video was removed?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">No, this tool only checks the overall status of the entire channel (active vs. terminated). It cannot detect if individual videos have been removed or made private.</p>
                 </div>
             </div>
+        </section>
+
+        <section id="about-banchecker" class="mt-20 max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">About BanChecker.org</h2>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                BanChecker.org is a free suite of tools designed to help you check the status of your online accounts across various platforms. From our YouTube Ban Checker to tools for Reddit, Steam, and more, our goal is to provide simple, fast, and reliable solutions. We believe in free and accessible tools for online communities. If you find our work helpful, please consider sharing <a href="/" class="text-blue-600 dark:text-blue-400 hover:underline">BanChecker.org</a> with your friends and communities. Your support is our greatest motivation to keep improving and adding new checkers!
+            </p>
         </section>
     </main>
 
@@ -169,6 +200,7 @@
     </footer>
 
     <script src="js/theme.js" defer></script>
+    <script src="js/main.js" defer></script>
     <script src="js/youtube-ban-checker.js" defer></script>
 </body>
 </html> 

@@ -4,6 +4,12 @@
 */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Global functionalities can be added here in the future.
-  // For example, handling dynamic parts of the unified header or footer.
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
 }); 
