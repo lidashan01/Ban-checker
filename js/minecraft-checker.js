@@ -122,20 +122,24 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Event Listeners ---
-    checkButton.addEventListener('click', handleCheck);
+    if (checkButton) {
+        checkButton.addEventListener('click', handleCheck);
+    }
 
-    resultsArea.addEventListener('click', (event) => {
-        if (event.target.classList.contains('copy-uuid-btn')) {
-            const uuid = event.target.dataset.uuid;
-            navigator.clipboard.writeText(uuid).then(() => {
-                const originalText = event.target.textContent;
-                event.target.textContent = 'Copied!';
-                setTimeout(() => {
-                    event.target.textContent = originalText;
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy UUID: ', err);
-            });
-        }
-    });
+    if (resultsArea) {
+        resultsArea.addEventListener('click', (event) => {
+            if (event.target.classList.contains('copy-uuid-btn')) {
+                const uuid = event.target.dataset.uuid;
+                navigator.clipboard.writeText(uuid).then(() => {
+                    const originalText = event.target.textContent;
+                    event.target.textContent = 'Copied!';
+                    setTimeout(() => {
+                        event.target.textContent = originalText;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy UUID: ', err);
+                });
+            }
+        });
+    }
 }); 
