@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const handleAccountCheck = async () => {
         const userInputs = userInputArea.value
-            .split('\\n')
+            .split('\n')
             .map(u => u.trim())
             .filter(u => u.length > 0);
 
