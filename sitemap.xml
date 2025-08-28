@@ -38,10 +38,22 @@
 
 <url> 
     <loc>https://banchecker.org/steam-ban-checker</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-08-28</lastmod>
     <changefreq>weekly</changefreq> 
     <priority>1.0</priority>
 </url>
 
+<url> 
+    <loc>https://banchecker.org/tiktok-ban-checker</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>weekly</changefreq> 
+    <priority>1.0</priority>
+</url>
+<url> 
+    <loc>https://banchecker.org/privacy-policy</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>weekly</changefreq> 
+    <priority>0.5</priority>
+</url>
 
 </urlset>

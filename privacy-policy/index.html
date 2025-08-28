@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | BanChecker</title>
+    <meta name="description" content="Learn how BanChecker collects, uses, and protects your information. Read about cookies, analytics, data retention, and your choices.">
+    <meta name="keywords" content="privacy policy, data protection, cookies, analytics, user rights, BanChecker">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z' fill='%232563EB'/%3E%3Cpath d='M41.6667 50L50 58.3333L66.6667 41.6667' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="canonical" href="https://banchecker.org/privacy-policy/">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Privacy Policy | BanChecker">
+    <meta property="og:description" content="Learn how BanChecker collects, uses, and protects your information. Read about cookies, analytics, data retention, and your choices.">
+    <meta property="og:url" content="https://banchecker.org/privacy-policy/">
+    <meta property="og:site_name" content="BanChecker">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Privacy Policy | BanChecker">
+    <meta name="twitter:description" content="Learn how BanChecker collects, uses, and protects your information.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: {} } }
+    </script>
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-500">
+
+    <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm dark:shadow-gray-800 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <a href="/" class="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
+                    <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M83.3333 16.6667H16.6667C13.9052 16.6667 11.6667 18.9052 11.6667 21.6667V83.3333C11.6667 86.0948 13.9052 88.3333 16.6667 88.3333H83.3333C86.0948 88.3333 88.3333 86.0948 88.3333 83.3333V21.6667C88.3333 18.9052 86.0948 16.6667 83.3333 16.6667Z" fill="#2563EB"/><path d="M41.6667 50L50 58.3333L66.6667 41.6667" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>BanChecker</span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <nav class="hidden md:flex gap-2 text-sm">
+                        <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Reddit</a>
+                        <a href="/steam-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Steam</a>
+                        <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Minecraft</a>
+                        <a href="/roblox-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Roblox</a>
+                        <a href="/youtube-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">YouTube</a>
+                        <a href="/tiktok-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">TikTok</a>
+                        <a href="/twitter-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Twitter</a>
+                    </nav>
+                    <button id="theme-toggle" type="button" class="flex-shrink-0 relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+                        <span class="sr-only">Toggle dark mode</span>
+                        <span id="theme-toggle-circle" class="inline-block h-5 w-5 transform rounded-full bg-white shadow-md ring-0 transition-transform duration-300 ease-in-out translate-x-0.5 dark:translate-x-5">
+                            <svg id="theme-toggle-dark-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-gray-400 w-3.5 h-3.5 dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                            <svg id="theme-toggle-light-icon" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-amber-500 w-3.5 h-3.5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        </span>
+                    </button>
+                    <button id="mobile-menu-button" type="button" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 dark:hover:bg-gray-800" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Reddit</a>
+                    <a href="/steam-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Steam</a>
+                    <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Minecraft</a>
+                    <a href="/roblox-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Roblox</a>
+                    <a href="/youtube-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">YouTube</a>
+                    <a href="/tiktok-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">TikTok</a>
+                    <a href="/twitter-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-16">
+        <nav class="text-sm" aria-label="breadcrumb">
+            <ol class="flex flex-wrap gap-2 text-gray-600 dark:text-gray-300">
+                <li><a href="/" class="hover:underline">Home</a></li>
+                <li aria-hidden="true">/</li>
+                <li aria-current="page" class="text-gray-900 dark:text-gray-200 font-medium">Privacy Policy</li>
+            </ol>
+        </nav>
+
+        <div class="max-w-3xl mx-auto mt-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Privacy Policy</h1>
+            <p class="mt-4 text-gray-600 dark:text-gray-300">Effective date: 2025-07-10</p>
+
+            <section class="mt-8 space-y-6 leading-relaxed text-gray-700 dark:text-gray-300">
+                <p>At BanChecker ("we", "us", or "our"), we value your privacy and strive to keep our tools simple, transparent, and respectful of your data. This Privacy Policy explains what information we collect, how we use it, and the choices you have. By using our website and tools, you agree to the practices described here.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-10">Information We Collect</h2>
+                <p>We collect minimal information necessary to provide our services. When you use our tools, any account names or profile URLs you enter are processed to perform the requested checks. We do not create user accounts for our tools, and we do not knowingly collect sensitive personal data. Standard web server logs may include your IP address, browser type, referrer, and timestamps for security and diagnostics.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-10">How We Use Information</h2>
+                <p>We use input data solely to perform the checks you request and to display the results to you. Operational metrics and aggregated usage patterns may be used to maintain, secure, and improve our services. We do not sell your personal information.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-10">Cookies and Analytics</h2>
+                <p>We may use cookies and similar technologies to remember preferences (such as dark mode) and to understand how our site is used. We may also use privacy-friendly analytics or third‑party analytics that provide aggregate statistics. You can control cookies through your browser settings. Disabling certain cookies may affect site functionality.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-10">Data Retention</h2>
+                <p>Input values submitted to our tools are processed in real time and typically not stored beyond what is necessary to complete the request. Diagnostic logs and security records may be retained for a limited period consistent with operational needs and legal obligations.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-10">Your Choices and Rights</h2>
+                <p>You may choose not to provide input data to our tools. You can clear cookies via your browser. If you have questions about access, correction, or deletion of any information related to you, please contact us and we will review your request in line with applicable laws.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-10">Children’s Privacy</h2>
+                <p>Our services are intended for a general audience and are not directed to children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us information, please contact us so we can delete it.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-10">Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in technology, law, or our services. When we do, we will revise the effective date above. Continued use of our site after changes means you accept the updated policy.</p>
+
+                <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-10">Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy or our data practices, please contact us at <a href="mailto:contact@banchecker.org" class="text-blue-600 dark:text-blue-400 hover:underline">contact@banchecker.org</a>.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-white dark:bg-gray-800/50 mt-20 border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-6 text-center text-gray-500 dark:text-gray-400">
+            <p>&copy; 2025 banchecker.org - All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Structured Data: Organization, WebSite, Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "name": "BanChecker",
+                "url": "https://banchecker.org/"
+            },
+            {
+                "@type": "WebSite",
+                "name": "BanChecker",
+                "url": "https://banchecker.org/"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://banchecker.org/"},
+                    {"@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://banchecker.org/privacy-policy/"}
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/main.js" defer></script>
+</body>
+</html> 
