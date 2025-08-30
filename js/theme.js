@@ -16,15 +16,17 @@ function applyTheme() {
     }
 }
 
-// Event listener for the toggle button
-themeToggleBtn.addEventListener('click', () => {
-    // Toggle the 'dark' class on the root <html> element
-    document.documentElement.classList.toggle('dark');
+// Event listener for the toggle button (guarded for pages without the control)
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        // Toggle the 'dark' class on the root <html> element
+        document.documentElement.classList.toggle('dark');
 
-    // Save the user's preference to localStorage
-    const isDark = document.documentElement.classList.contains('dark');
-    localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
-});
+        // Save the user's preference to localStorage
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+    });
+}
 
 // Apply the theme when the script is loaded
 applyTheme(); 
