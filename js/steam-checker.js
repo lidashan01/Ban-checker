@@ -1,24 +1,31 @@
 (function () {
   const initializeSteamChecker = () => {
-    const query = (selector) => document.querySelector(selector);
+    const query = (selector, root = document) => root.querySelector(selector);
 
-    // Support both new and legacy IDs/selectors
+    // Scope strictly to the Steam checker section to avoid affecting other pages
+    const checkerSection = document.getElementById('steam-checker');
+    if (!checkerSection) {
+      // Not on Steam checker page; do nothing
+      return;
+    }
+
+    // Support both new and legacy IDs/selectors within the section
     const inputElement =
-      query('#steam-input') ||
-      query('#steamId') ||
-      query('#steam-id') ||
-      query('input[placeholder*="Steam ID" i]') ||
-      query('textarea#steam-input');
+      query('#steam-input', checkerSection) ||
+      query('#steamId', checkerSection) ||
+      query('#steam-id', checkerSection) ||
+      query('input[placeholder*="Steam ID" i]', checkerSection) ||
+      query('textarea#steam-input', checkerSection);
 
     const spinner =
-      query('#loading-spinner') || query('[data-role="loading-spinner"]');
+      query('#loading-spinner', checkerSection) || query('[data-role="loading-spinner"]', checkerSection);
     const resultsArea =
-      query('#results-area') || query('[data-role="results-area"]');
+      query('#results-area', checkerSection) || query('[data-role="results-area"]', checkerSection);
     const resultsContainer =
-      query('#results-container') || query('[data-role="results-container"]');
+      query('#results-container', checkerSection) || query('[data-role="results-container"]', checkerSection);
 
     if (!inputElement) {
-      console.warn('[SteamChecker] Input element not found. Initialization continues with delegated listeners.');
+      console.warn('[SteamChecker] Input element not found in #steam-checker section.');
     }
 
     const showSpinner = (show) => {
@@ -139,8 +146,8 @@
       ensureResultsAreaVisible();
     };
 
-    // Delegated click listener to support legacy buttons and avoid null addEventListener
-    document.addEventListener('click', (event) => {
+    // Delegated click listener within the Steam section only
+    checkerSection.addEventListener('click', (event) => {
       const target = event.target;
       if (!target) return;
       const clickedCheck = target.closest('#check-button, #checkBan, #check-ban, [data-action="check-ban"]');
