@@ -1,52 +1,61 @@
 (function () {
-    const getById = (id) => document.getElementById(id);
-  
-    const inputElement = getById('steam-input');
-    const checkButton = getById('check-button');
-    const spinner = getById('loading-spinner');
-    const resultsArea = getById('results-area');
-    const resultsContainer = getById('results-container');
-  
-    if (!inputElement || !checkButton) {
-      console.warn('[SteamChecker] Required elements not found on this page. Initialization skipped.');
-      return;
+  const initializeSteamChecker = () => {
+    const query = (selector) => document.querySelector(selector);
+
+    // Support both new and legacy IDs/selectors
+    const inputElement =
+      query('#steam-input') ||
+      query('#steamId') ||
+      query('#steam-id') ||
+      query('input[placeholder*="Steam ID" i]') ||
+      query('textarea#steam-input');
+
+    const spinner =
+      query('#loading-spinner') || query('[data-role="loading-spinner"]');
+    const resultsArea =
+      query('#results-area') || query('[data-role="results-area"]');
+    const resultsContainer =
+      query('#results-container') || query('[data-role="results-container"]');
+
+    if (!inputElement) {
+      console.warn('[SteamChecker] Input element not found. Initialization continues with delegated listeners.');
     }
-  
+
     const showSpinner = (show) => {
       if (!spinner) return;
       spinner.classList[show ? 'remove' : 'add']('hidden');
     };
-  
+
     const clearResults = () => {
       if (resultsContainer) {
         resultsContainer.innerHTML = '';
       }
     };
-  
+
     const ensureResultsAreaVisible = () => {
       if (resultsArea) {
         resultsArea.classList.remove('hidden');
       }
     };
-  
+
     const createResultCard = (htmlContent) => {
       const card = document.createElement('div');
       card.className = 'p-4 bg-white dark:bg-gray-800/50 rounded-lg shadow border border-transparent dark:border-gray-700';
       card.innerHTML = htmlContent;
       return card;
     };
-  
+
     const isSteamId64 = (value) => /^\d{17}$/.test(value);
-  
+
     const parseSteamInput = (raw) => {
       const value = raw.trim();
       if (!value) return null;
-  
+
       // Direct 64-bit ID
       if (isSteamId64(value)) {
         return { type: 'steamid64', value };
       }
-  
+
       try {
         const url = new URL(value.startsWith('http') ? value : `https://${value}`);
         const host = url.hostname.replace(/^www\./, '');
@@ -63,11 +72,11 @@
       } catch (_) {
         // Not a URL; fall through
       }
-  
+
       // Plain vanity string fallback
       return { type: 'vanity', value };
     };
-  
+
     const renderVanityNotice = (original, vanity) => {
       const content = `
         <div class="flex items-start gap-3">
@@ -83,7 +92,7 @@
       `;
       return createResultCard(content);
     };
-  
+
     const renderIdCard = (original, steamId64) => {
       const content = `
         <div class="space-y-2">
@@ -99,36 +108,52 @@
       `;
       return createResultCard(content);
     };
-  
+
     const handleCheck = async () => {
-      const raw = inputElement.value.trim();
+      const raw = (inputElement && inputElement.value ? inputElement.value : '').trim();
       if (!raw) {
         alert('Please enter a Steam profile URL, vanity URL, or SteamID64.');
         return;
       }
-  
+
       const lines = raw.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
       if (lines.length === 0) {
         alert('Please enter a Steam profile URL, vanity URL, or SteamID64.');
         return;
       }
-  
+
       showSpinner(true);
       clearResults();
-  
+
       for (const line of lines) {
         const parsed = parseSteamInput(line);
         if (!parsed) continue;
         if (parsed.type === 'steamid64') {
-          resultsContainer.appendChild(renderIdCard(line, parsed.value));
+          if (resultsContainer) resultsContainer.appendChild(renderIdCard(line, parsed.value));
         } else {
-          resultsContainer.appendChild(renderVanityNotice(line, parsed.value));
+          if (resultsContainer) resultsContainer.appendChild(renderVanityNotice(line, parsed.value));
         }
       }
-  
+
       showSpinner(false);
       ensureResultsAreaVisible();
     };
-  
-    checkButton.addEventListener('click', handleCheck);
-  })(); 
+
+    // Delegated click listener to support legacy buttons and avoid null addEventListener
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!target) return;
+      const clickedCheck = target.closest('#check-button, #checkBan, #check-ban, [data-action="check-ban"]');
+      if (clickedCheck) {
+        event.preventDefault();
+        handleCheck();
+      }
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSteamChecker);
+  } else {
+    initializeSteamChecker();
+  }
+})(); 
