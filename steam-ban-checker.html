@@ -6,9 +6,11 @@
     <title>Steam Ban Checker - Check Steam VAC & Game Bans | BanChecker</title>
     <meta name="description" content="Use our free Steam Ban Checker to instantly see if a Steam account has a VAC ban, game ban, or community ban. Enter a profile URL, vanity URL, or SteamID64.">
     <meta name="google-adsense-account" content="ca-pub-1031868956044790">
-    <link rel="icon" href="images/banchecker-logo.png">
+    <link rel="icon" href="/images/banchecker-logo.png">
     <link rel="canonical" href="https://banchecker.org/steam-ban-checker/">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Backup Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1031868956044790"
     crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
@@ -38,8 +40,24 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+        
+        // Ensure Tailwind CSS is loaded
+        setTimeout(() => {
+            const testEl = document.createElement('div');
+            testEl.className = 'bg-blue-500';
+            testEl.style.display = 'none';
+            document.body.appendChild(testEl);
+            
+            const computed = window.getComputedStyle(testEl);
+            if (computed.backgroundColor !== 'rgb(59, 130, 246)') {
+                console.warn('Tailwind CSS not loaded properly, applying fallback styles');
+                document.body.classList.add('tailwind-fallback');
+            }
+            
+            document.body.removeChild(testEl);
+        }, 100);
     </script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         /* Add smooth scrolling for anchor links */
         html {
@@ -201,9 +219,9 @@
         </div>
     </footer>
 
-    <script src="js/theme.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/steam-checker.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/steam-checker.js" defer></script>
     
 </body>
 </html> 

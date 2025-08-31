@@ -6,4 +6,95 @@
 body {
     /* Example: You could set a default font-family here as a fallback */
     /* font-family: 'Inter', sans-serif; */
+}
+
+/* Fallback styles when Tailwind CSS fails to load */
+.tailwind-fallback {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+}
+
+.tailwind-fallback .bg-gray-50 { background-color: #f9fafb !important; }
+.tailwind-fallback .dark\:bg-gray-900 { background-color: #111827 !important; }
+.tailwind-fallback .bg-white { background-color: #ffffff !important; }
+.tailwind-fallback .dark\:bg-gray-800 { background-color: #1f2937 !important; }
+.tailwind-fallback .bg-blue-600 { background-color: #2563eb !important; }
+.tailwind-fallback .hover\:bg-blue-700:hover { background-color: #1d4ed8 !important; }
+
+.tailwind-fallback .text-gray-800 { color: #1f2937 !important; }
+.tailwind-fallback .dark\:text-gray-200 { color: #e5e7eb !important; }
+.tailwind-fallback .text-white { color: #ffffff !important; }
+.tailwind-fallback .text-blue-600 { color: #2563eb !important; }
+
+.tailwind-fallback .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+.tailwind-fallback .mx-auto { margin-left: auto; margin-right: auto; }
+.tailwind-fallback .px-4 { padding-left: 1rem; padding-right: 1rem; }
+.tailwind-fallback .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.tailwind-fallback .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.tailwind-fallback .p-8 { padding: 2rem; }
+.tailwind-fallback .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.tailwind-fallback .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+
+.tailwind-fallback .mt-4 { margin-top: 1rem; }
+.tailwind-fallback .mt-8 { margin-top: 2rem; }
+.tailwind-fallback .mt-12 { margin-top: 3rem; }
+.tailwind-fallback .mb-2 { margin-bottom: 0.5rem; }
+
+.tailwind-fallback .rounded-lg { border-radius: 0.5rem; }
+.tailwind-fallback .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+.tailwind-fallback .border { border-width: 1px; }
+.tailwind-fallback .border-gray-300 { border-color: #d1d5db; }
+
+.tailwind-fallback .flex { display: flex; }
+.tailwind-fallback .justify-between { justify-content: space-between; }
+.tailwind-fallback .justify-center { justify-content: center; }
+.tailwind-fallback .items-center { align-items: center; }
+.tailwind-fallback .gap-2 { gap: 0.5rem; }
+.tailwind-fallback .gap-4 { gap: 1rem; }
+
+.tailwind-fallback .text-xl { font-size: 1.25rem; }
+.tailwind-fallback .text-3xl { font-size: 1.875rem; }
+.tailwind-fallback .text-lg { font-size: 1.125rem; }
+.tailwind-fallback .font-bold { font-weight: 700; }
+.tailwind-fallback .font-medium { font-weight: 500; }
+.tailwind-fallback .text-center { text-align: center; }
+
+.tailwind-fallback .w-full { width: 100%; }
+.tailwind-fallback .max-w-3xl { max-width: 48rem; }
+.tailwind-fallback .max-w-4xl { max-width: 56rem; }
+
+.tailwind-fallback .hidden { display: none !important; }
+.tailwind-fallback .block { display: block; }
+
+.tailwind-fallback .sticky { position: sticky; }
+.tailwind-fallback .top-0 { top: 0; }
+.tailwind-fallback .z-50 { z-index: 50; }
+
+.tailwind-fallback textarea, .tailwind-fallback input {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tailwind-fallback button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.tailwind-fallback .space-y-4 > * + * {
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .tailwind-fallback .md\:py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+    .tailwind-fallback .md\:text-4xl { font-size: 2.25rem; }
+    .tailwind-fallback .md\:flex { display: flex; }
+    .tailwind-fallback .md\:hidden { display: none; }
 } 
