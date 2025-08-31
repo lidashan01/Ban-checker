@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Twitter Ban Checker - Is My Account Banned on X?</title>
-    <meta name="description" content="Use our free Twitter Ban Checker to instantly see if a Twitter (now X) account is banned, suspended, or active. Enter a username to check the status.">
+    <title>Twitter Shadowban & Suspension Checker | BanChecker</title>
+    <meta name="description" content="Is your Twitter account suspended, locked, or shadowbanned? Our free checker helps you test for suspensions and various visibility restrictions. Know your true reach.">
     <meta name="google-adsense-account" content="ca-pub-1031868956044790">
     <link rel="icon" href="/images/banchecker-logo.png">
     <link rel="canonical" href="https://banchecker.org/twitter-ban-checker/">
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1031868956044790"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-86YPJ0X927"></script>
     <script>
@@ -20,7 +20,95 @@
 
     gtag('config', 'G-86YPJ0X927');
     </script>
-   
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://banchecker.org/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Twitter Ban Checker"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Check a Twitter Account's Status",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Enter Twitter Username",
+                "text": "Provide the Twitter username (handle), without the '@' symbol, for the account you want to check."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Start the Test",
+                "text": "Click the 'Check Status' button. Our tool will analyze the account's public data for signs of suspension or shadowbanning."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Review Visibility Status",
+                "text": "The results will show if the account is active, suspended, or exhibits signs of common shadowban types like search bans or thread hiding."
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is this Twitter Shadowban test safe?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is 100% safe. We only use public Twitter data and do not require you to log in or grant any permissions to your account. Your privacy and account security are never at risk."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you test for a Twitter shadowban?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our tool simulates how Twitter treats an account in public spaces. It checks if the account's tweets appear in search results, if the user appears in search suggestions, and if their replies are visible to logged-out users. If visibility is restricted in these areas, it indicates a type of shadowban."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can a suspended Twitter account be recovered?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, in many cases. If your account is suspended, you can file an appeal with Twitter Support. You'll need to explain why you believe the suspension was a mistake. The success of the appeal often depends on the severity of the violation and your account's history."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between a suspended and a locked account?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A locked account is usually a temporary security measure because Twitter detected suspicious activity (like too many login attempts). You can typically unlock it by verifying your identity (e.g., via email or phone). A suspended account is a penalty for violating Twitter's rules, and it requires a formal appeal to be restored."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does a shadowban last on Twitter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no official duration, but community reports suggest that most shadowbans last between 48 and 72 hours. During this time, it's often recommended to pause tweeting and interacting to allow the system's flags on your account to reset."
+                }
+            }
+        ]
+    }
+    </script>
    
    <script>
         // Configure Tailwind to use dark mode
@@ -57,6 +145,7 @@
                         <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Minecraft</a>
                         <a href="/roblox-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">Roblox</a>
                         <a href="/youtube-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">YouTube</a>
+                        <a href="/tiktok-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium px-3 py-2 rounded-md">TikTok</a>
                         <a href="/twitter-ban-checker/" class="text-blue-600 dark:text-blue-400 font-semibold px-3 py-2 rounded-md">Twitter</a>
                     </nav>
                     <button id="theme-toggle" type="button" class="flex-shrink-0 relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
@@ -82,6 +171,7 @@
                     <a href="/minecraft-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Minecraft</a>
                     <a href="/roblox-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">Roblox</a>
                     <a href="/youtube-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">YouTube</a>
+                    <a href="/tiktok-ban-checker/" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 block px-3 py-2 rounded-md text-base font-medium">TikTok</a>
                     <a href="/twitter-ban-checker/" class="text-blue-600 dark:text-blue-400 block px-3 py-2 rounded-md text-base font-bold">Twitter</a>
                 </div>
             </div>
@@ -91,99 +181,124 @@
     <main class="container mx-auto px-4 py-8 md:py-16">
         <section id="twitter-checker" class="scroll-mt-24">
             <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Free Twitter Ban Checker</h1>
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">Twitter Shadowban & Suspension Checker</h1>
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                    Our free Twitter Ban Checker helps you determine if a Twitter/X account is banned, suspended, or active. To use this Twitter Ban Checker, enter one or more usernames (without the @) in the box below, one per line, and click "Check Accounts."
+                    Are your tweets getting no engagement? Does your profile seem invisible? Check for a Twitter shadowban, suspension, or other restrictions with our free tool. Understand your account's true visibility.
                 </p>
             </div>
 
-            <div class="mt-12 max-w-4xl mx-auto">
+            <div class="mt-8">
+                <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto">
+                    <ol class="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                        <li>
+                            <a href="/" class="block transition hover:text-gray-700 dark:hover:text-gray-200">
+                                <span class="sr-only"> Home </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="rtl:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </li>
+                        <li>
+                            <span class="block transition font-semibold text-gray-700 dark:text-gray-200"> Twitter Ban Checker </span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="mt-4 max-w-4xl mx-auto">
                 <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg shadow-lg border border-transparent dark:border-gray-700">
-                    <label for="usernames-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Twitter Usernames</label>
-                    <textarea id="usernames-input" rows="8" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="Enter one username per line, e.g.,&#x0a;Twitter&#x0a;AnotherUser"></textarea>
+                    <label for="username-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Twitter Username (without @)</label>
+                    <input type="text" id="username-input" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="e.g., elonmusk">
                     <div class="flex justify-center mt-4">
                         <button id="check-button" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                            <span>Check Accounts</span>
+                            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            <span>Check Status</span>
                         </button>
                     </div>
                 </div>
                 
                 <div id="loading-spinner" class="hidden mt-8 text-center">
                     <div class="inline-block w-8 h-8 border-4 border-blue-500 dark:border-blue-400 border-t-transparent rounded-full animate-spin"></div>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking Twitter accounts...</p>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking account status...</p>
                 </div>
 
-                <div id="results-area" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <label for="good-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Active Accounts</label>
-                        <textarea id="good-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
-                         <div class="flex justify-center mt-2">
-                            <button id="copy-good-button" class="bg-green-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                <span>Copy Active Accounts</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="bad-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Banned / Suspended / Not Found</label>
-                        <textarea id="bad-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
-                         <div class="flex justify-center mt-2">
-                            <button id="copy-bad-button" class="bg-red-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                <span>Copy Banned Accounts</span>
-                            </button>
-                        </div>
-                    </div>
+                <div id="results-area" class="hidden mt-8">
+                    <!-- Results will be injected here -->
                 </div>
                 <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">Found this Twitter Ban Checker useful? Please consider sharing it with your friends!</p>
             </div>
         </section>
 
-        <section id="about-tool" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">About Our Twitter Ban Checker</h2>
-            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a Twitter Ban Checker?</h3>
-                    <p class="mt-2">A Twitter Ban Checker is a diagnostic tool designed to verify the public status of a Twitter (now known as X) account. It helps you determine if an account is publicly visible, has been suspended by Twitter, or is otherwise inaccessible. For content creators, marketers, and everyday users, this provides a clear and immediate answer to the question, "Is my account banned?" Our free Twitter Ban Checker makes this process simple.</p>
+        <section id="about-twitter-bans" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Twitter Bans, Locks, and Shadowbans Explained</h2>
+            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed prose dark:prose-invert prose-blue max-w-none">
+                <p>Twitter's moderation system is complex, involving official penalties and more subtle forms of visibility filtering. Our Twitter Ban Checker helps you identify which, if any, of these apply to an account.</p>
+                
+                <h3>Official Penalties: Suspensions & Locks</h3>
+                <ul>
+                    <li><strong>Suspended Account:</strong> This is a direct penalty for violating Twitter's rules. Your account is made read-only, you cannot tweet, and your profile is hidden from public view. This requires a formal appeal to resolve.</li>
+                    <li><strong>Locked Account:</strong> This is usually a security measure. Twitter may lock your account if it detects suspicious login activity or suspects your account has been compromised. Unlocking it typically involves verifying your phone number or email.</li>
+                </ul>
+
+                <h3>The "Shadowban": Unofficial Visibility Filtering</h3>
+                <p>A "shadowban" is not an official term from Twitter, but it describes several types of algorithmic visibility filtering that can happen without notification:</p>
+                <ul>
+                    <li><strong>Search Ban:</strong> Your tweets will not appear in search results, even when people search for exact phrases you've used. This severely limits the reach of your content to non-followers.</li>
+                    <li><strong>Thread/Reply Deboosting:</strong> Your replies to other tweets are hidden behind a "Show more replies" button, sometimes even for your own followers. This makes it almost impossible to participate in public conversations.</li>
+                    <li><strong>Search Suggestion Ban:</strong> Your account will not appear in the search bar's auto-suggestions when people type your name.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="creator-safety" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">How to Maintain a Healthy Twitter Account</h2>
+            <div class="mt-8 space-y-6 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">1. Avoid Aggressive Following/Unfollowing</h3>
+                    <p class="mt-2">Rapidly following or unfollowing a large number of accounts in a short period is a classic bot behavior and a major red flag for Twitter's systems.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Use This Tool</h3>
-                    <ol class="list-decimal list-inside mt-2 space-y-1">
-                        <li><strong>Enter Usernames:</strong> Type or paste one or more Twitter usernames into the input box above. Make sure each username is on a new line and does not include the "@" symbol.</li>
-                        <li><strong>Start the Check:</strong> Click the "Check Accounts" button.</li>
-                        <li><strong>View Results:</strong> Our Twitter Ban Checker will process the list and sort the accounts into two categories: "Active Accounts" and "Banned / Suspended / Not Found".</li>
-                    </ol>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">2. Be Careful with Automation</h3>
+                    <p class="mt-2">While using third-party apps to schedule tweets is fine, automating likes, follows, or direct messages is against the rules and can quickly lead to account suspension.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Why Do Twitter Accounts Get Banned?</h3>
-                    <p class="mt-2">Twitter enforces its rules to ensure a safe environment. Accounts are typically banned or suspended for violations such as spam (e.g., aggressive following or posting duplicate content), platform manipulation (e.g., using automation to inflate engagement), security risks (e.g., phishing or malware), or posting abusive content. Using a reliable Twitter Ban Checker is the first step to diagnosing a potential issue with your account's visibility.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Appeal a Twitter Ban</h3>
-                    <p class="mt-2">If you believe your account was wrongly banned or suspended, you can file an appeal with Twitter. The official way to do this is by visiting the <a href="https://help.twitter.com/en/forms/account-access/appeals" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Twitter Help Center appeal form</a>. When submitting your appeal, be clear, polite, and provide any relevant information that supports your case. Avoid creating new accounts to bypass the suspension, as this can lead to a permanent ban.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">3. Engage Authentically</h3>
+                    <p class="mt-2">Don't post duplicate or near-duplicate tweets or replies. Participate in conversations genuinely. If your activity looks robotic or spammy, the algorithm may apply restrictions.</p>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
+        <section id="faq" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Frequently Asked Questions</h2>
             <div class="mt-8 space-y-6">
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this Twitter Ban Checker free to use?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, absolutely. Our Twitter Ban Checker is 100% free to use. We believe essential community tools should be accessible to everyone.</p>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this Twitter Shadowban test safe?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, our tool is 100% safe. We only use public Twitter data and do not require you to log in or grant any permissions to your account. Your privacy and account security are never at risk.</p>
                 </div>
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Do you store the usernames I enter?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">No. We respect your privacy. All checks are performed in real-time, and we do not log, store, or share any of the usernames you enter into our checker.</p>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How do you test for a Twitter shadowban?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Our tool simulates how Twitter treats an account in public spaces. It checks if the account's tweets appear in search results, if the user appears in search suggestions, and if their replies are visible to logged-out users. If visibility is restricted in these areas, it indicates a type of shadowban.</p>
                 </div>
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How accurate is this tool?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">Our tool queries Twitter's public data to determine an account's status. It is highly accurate for identifying active, suspended, and non-existent accounts. If our Twitter Ban Checker flags an account, it reflects its current public visibility on the platform.</p>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Can a suspended Twitter account be recovered?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, in many cases. If your account is suspended, you can file an appeal with Twitter Support. You'll need to explain why you believe the suspension was a mistake. The success of the appeal often depends on the severity of the violation and your account's history.</p>
+                </div>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">What's the difference between a suspended and a locked account?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">A locked account is usually a temporary security measure because Twitter detected suspicious activity (like too many login attempts). You can typically unlock it by verifying your identity (e.g., via email or phone). A suspended account is a penalty for violating Twitter's rules, and it requires a formal appeal to be restored.</p>
+                </div>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How long does a shadowban last on Twitter?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">There is no official duration, but community reports suggest that most shadowbans last between 48 and 72 hours. During this time, it's often recommended to pause tweeting and interacting to allow the system's flags on your account to reset.</p>
                 </div>
             </div>
         </section>
-        
+
         <section id="about-banchecker" class="mt-20 max-w-3xl mx-auto text-center">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white">About BanChecker.org</h2>
             <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -194,13 +309,22 @@
 
     <footer class="bg-white dark:bg-gray-800/50 mt-20 border-t border-gray-200 dark:border-gray-800">
         <div class="container mx-auto px-4 py-6 text-center text-gray-500 dark:text-gray-400">
-            <a href="https://banchecker.org/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
-            <p>&copy; 2025 banchecker.org - All Rights Reserved.</p>    
+            <div class="space-x-4 mb-4">
+                <a href="/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
+            </div>
+            <p>&copy; 2024 banchecker.org - All Rights Reserved.</p>
+            <div class="mt-4 space-x-4 text-sm">
+                <a href="https://splitanimage.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Image Splitter</a>
+                <a href="https://coloroverlay.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Color Overlay</a>
+                <a href="https://dcserverlist.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Server List</a>
+                <a href="https://discordbanner.org" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Banner Maker</a>
+            </div>
         </div>
     </footer>
 
-    <script src="js/theme.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/twitter-ban-checker.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/twitter-checker.js" defer></script>
+    
 </body>
 </html> 

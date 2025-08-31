@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Minecraft Ban & Profile Checker - BanChecker</title>
-    <meta name="description" content="Use our free Minecraft Ban Checker to check player profiles. Find skins, UUIDs, and name history to help identify ban evaders on your server.">
+    <title>Minecraft Ban Checker - Check Mojang & Server Bans | BanChecker</title>
+    <meta name="description" content="Is your Minecraft account banned? Use our free checker to verify Mojang account status and check for bans on major servers like Hypixel. Stay in the game!">
     <meta name="google-adsense-account" content="ca-pub-1031868956044790">
     <link rel="icon" href="/images/banchecker-logo.png">
     <link rel="canonical" href="https://banchecker.org/minecraft-checker/">
@@ -19,6 +19,95 @@
     gtag('js', new Date());
 
     gtag('config', 'G-86YPJ0X927');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://banchecker.org/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Minecraft Ban Checker"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Check a Minecraft Account's Ban Status",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Enter Minecraft Username",
+                "text": "Provide the Minecraft username (in-game name) of the account you wish to check."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Initiate the Check",
+                "text": "Click the 'Check Status' button. Our tool will query official APIs and public server data."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Review Ban Status",
+                "text": "View the results, which will indicate if there is a global Mojang/Microsoft ban or any known bans on major supported servers."
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is this Minecraft Ban Checker safe to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. Our tool only uses your public Minecraft username to check publicly available data from Mojang and game servers. We never ask for your password or any sensitive account information."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I appeal a server ban?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Server bans are issued by the server's administration team, not Mojang. To appeal, you must visit that specific server's website or Discord and follow their appeal process. Each server has its own rules and procedures."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is a Mojang (Microsoft) ban permanent?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Global bans from Mojang/Microsoft are typically issued for severe violations of the terms of service and are often permanent. They will prevent you from playing on any server, including private ones. Appealing these requires contacting Microsoft/Mojang support directly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will using mods like OptiFine get me banned?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Generally, no. Performance-enhancing and aesthetic mods like OptiFine or Sodium are allowed on the vast majority of servers. However, mods that give you an unfair advantage—such as X-Ray, Kill-aura, or flight hacks—are considered cheat clients and will get you banned very quickly on most servers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is a server ban different from a Mojang ban?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A server ban only prevents you from joining that specific server (e.g., Hypixel). You can still play on any other server and in single-player. A global ban from Mojang/Microsoft prevents you from accessing all online multiplayer features of Minecraft entirely."
+                }
+            }
+        ]
+    }
     </script>
    
    
@@ -102,80 +191,122 @@
     <main class="container mx-auto px-4 py-8 md:py-16">
         <section id="minecraft-checker" class="scroll-mt-24">
             <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Free Minecraft Ban & Profile Checker</h1>
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">Minecraft Account Ban Checker</h1>
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                    Our free Minecraft Ban Checker helps you investigate player profiles. By checking name history and UUID, server admins can identify players who are evading a ban. Enter usernames below to check their profiles.
+                    Got kicked from a server? Can't log in? Use our free Minecraft Ban Checker to see if your account has a global ban from Mojang or a local ban from a major server. Know your status before you join the next game.
                 </p>
             </div>
 
-            <div class="mt-12 max-w-4xl mx-auto">
+            <div class="mt-8">
+                <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto">
+                    <ol class="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                        <li>
+                            <a href="/" class="block transition hover:text-gray-700 dark:hover:text-gray-200">
+                                <span class="sr-only"> Home </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="rtl:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </li>
+                        <li>
+                            <span class="block transition font-semibold text-gray-700 dark:text-gray-200"> Minecraft Ban Checker </span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="mt-4 max-w-4xl mx-auto">
                 <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg shadow-lg border border-transparent dark:border-gray-700">
                     <label for="username-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Minecraft Username</label>
                     <input type="text" id="username-input" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="e.g., Notch">
                     <div class="flex justify-center mt-4">
                         <button id="check-button" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
                             <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                            <span>Check Account</span>
+                            <span>Check Status</span>
                         </button>
                     </div>
                 </div>
                 
                 <div id="loading-spinner" class="hidden mt-8 text-center">
                     <div class="inline-block w-8 h-8 border-4 border-blue-500 dark:border-blue-400 border-t-transparent rounded-full animate-spin"></div>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking Minecraft accounts...</p>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking account status...</p>
                 </div>
 
-                <div id="results-area" class="hidden mt-8 space-y-6">
-                    <!-- Results are dynamically added here -->
+                <div id="results-area" class="hidden mt-8">
+                    <!-- Results will be injected here -->
                 </div>
-                <p id="share-text" class="hidden text-center text-sm text-gray-500 dark:text-gray-400 mt-6">Found this Minecraft Ban Checker useful? Please consider sharing it with your friends!</p>
+                <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">Found this Minecraft Ban Checker useful? Please consider sharing it with your friends!</p>
             </div>
         </section>
 
-        <section id="about-tool" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">About Minecraft Ban Checker</h2>
-            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a Minecraft Ban Checker?</h3>
-                    <p class="mt-2">Our Minecraft Ban Checker is a unique tool for server administrators and players. Unlike other platforms, Minecraft doesn't have a "global" ban system; bans are managed by individual servers. This tool acts as an identity and reputation checker. By providing a player's UUID and full username history, it helps admins identify "ban evaders"—players who change their username to bypass a server ban. This makes our Minecraft Ban Checker an essential tool for community management.</p>
+        <section id="about-minecraft-bans" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Mojang Bans vs. Server Bans: What's the Difference?</h2>
+            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed prose dark:prose-invert prose-blue max-w-none">
+                <p>In the world of Minecraft, a "ban" can mean two very different things. Understanding which one you're dealing with is the first step to resolving it. Our Minecraft Ban Checker helps you diagnose the problem.</p>
+                
+                <h3>Global Ban (Mojang/Microsoft)</h3>
+                <p>This is the most severe type of ban, issued directly by Mojang (now Microsoft). A global ban means your account has violated the Minecraft Terms of Service or Community Standards. The consequences are drastic:</p>
+                <ul>
+                    <li>You lose access to all online play, including multiplayer servers, Realms, and even private servers with friends.</li>
+                    <li>These bans are often permanent and are reserved for serious offenses like hate speech, threats, or activities that compromise the safety of other players.</li>
+                    <li>Appealing a global ban is a formal process that must be done through the official Minecraft or Microsoft support channels.</li>
+                </ul>
+
+                <h3>Server-Specific Ban</h3>
+                <p>This is the most common type of ban. It is issued by the administrators or moderators of a specific server (e.g., Hypixel, Mineplex). This means you have broken the rules of that particular community.</p>
+                <ul>
+                    <li>The ban only applies to that server. You are free to play on any other server in the Minecraft universe.</li>
+                    <li>Reasons vary wildly between servers but usually involve cheating (X-ray, combat hacks), griefing (destroying others' builds), spamming chat, or being disrespectful.</li>
+                    <li>To get unbanned, you must find the server's website or Discord and follow their specific appeal process. The decision is entirely up to the server's staff.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="safe-gaming" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">How to Play Safe and Avoid Bans</h2>
+            <div class="mt-8 space-y-6 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">1. Read the Rules of Every Server</h3>
+                    <p class="mt-2">This is the golden rule. Before you do anything on a new server, find their rules page or channel and read it. What's acceptable on one server might be a bannable offense on another.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Use This Tool</h3>
-                    <ol class="list-decimal list-inside mt-2 space-y-1">
-                        <li><strong>Enter Usernames:</strong> Type or paste one or more Minecraft usernames into the input box. Place each username on a new line.</li>
-                        <li><strong>Start the Check:</strong> Click the "Check Accounts" button.</li>
-                        <li><strong>View Results:</strong> For each existing player, the Minecraft Ban Checker will display their current skin, their permanent UUID, and a list of past usernames. For usernames that don't exist, it will show an "Available" status.</li>
-                    </ol>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">2. Be Smart About Mods</h3>
+                    <p class="mt-2">Stick to well-known performance or aesthetic mods like OptiFine, Sodium, or shaders. Never install mods from untrusted sources, and never use clients that promise an unfair advantage. If it feels like cheating, it probably is.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Why are Minecraft Bans Server-Specific?</h3>
-                    <p class="mt-2">Mojang, the creator of Minecraft, gives server owners full autonomy to manage their communities. This means a ban on one server (e.g., Hypixel) does not affect your access to another (e.g., a private server with friends). This decentralized approach is why a central Minecraft Ban Checker for server-level bans is not possible. However, checking a player's identity history is the next best thing for security.</p>
-                </div>
-                 <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Appeal a Minecraft Ban</h3>
-                    <p class="mt-2">If you've been banned from a Minecraft server, you must appeal directly to that server's staff or owner. There is no central Mojang or Microsoft process for appealing a third-party server ban. Look for the server's official website, Discord server, or forum to find their specific appeal process. Be polite and provide evidence if you believe the ban was a mistake.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">3. Secure Your Account</h3>
+                    <p class="mt-2">Protect your Microsoft/Mojang account with a strong, unique password and enable two-factor authentication (2FA). If a hacker gets into your account and cheats on a server, the ban will still be applied to you.</p>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
+        <section id="faq" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Frequently Asked Questions</h2>
             <div class="mt-8 space-y-6">
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this Minecraft Ban Checker free?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, our Minecraft Ban Checker is 100% free to use. We are dedicated to providing useful tools for the gaming community.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this Minecraft Ban Checker safe to use?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Absolutely. Our tool only uses your public Minecraft username to check publicly available data from Mojang and game servers. We never ask for your password or any sensitive account information.</p>
                 </div>
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Do you store the usernames I check?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">No. Your privacy is paramount. All checks are processed in real-time, and we do not log, store, or share any usernames.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Can I appeal a server ban?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes. Server bans are issued by the server's administration team, not Mojang. To appeal, you must visit that specific server's website or Discord and follow their appeal process. Each server has its own rules and procedures.</p>
                 </div>
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How accurate is the data?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">Our tool retrieves data directly from Mojang's official APIs, so the UUID and name history are highly accurate and up-to-date. This makes our Minecraft Ban Checker a reliable source for player information.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is a Mojang (Microsoft) ban permanent?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Global bans from Mojang/Microsoft are typically issued for severe violations of the terms of service and are often permanent. They will prevent you from playing on any server, including private ones. Appealing these requires contacting Microsoft/Mojang support directly.</p>
                 </div>
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Does this work for Minecraft: Bedrock Edition?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">This checker is specifically for Minecraft: Java Edition usernames. It does not work for Bedrock Edition accounts, which use the Xbox Live Gamertag system.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Will using mods like OptiFine get me banned?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Generally, no. Performance-enhancing and aesthetic mods like OptiFine or Sodium are allowed on the vast majority of servers. However, mods that give you an unfair advantage—such as X-Ray, Kill-aura, or flight hacks—are considered cheat clients and will get you banned very quickly on most servers.</p>
+                </div>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How is a server ban different from a Mojang ban?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">A server ban only prevents you from joining that specific server (e.g., Hypixel). You can still play on any other server and in single-player. A global ban from Mojang/Microsoft prevents you from accessing all online multiplayer features of Minecraft entirely.</p>
                 </div>
             </div>
         </section>
@@ -190,13 +321,22 @@
 
     <footer class="bg-white dark:bg-gray-800/50 mt-20 border-t border-gray-200 dark:border-gray-800">
         <div class="container mx-auto px-4 py-6 text-center text-gray-500 dark:text-gray-400">
-            <a href="https://banchecker.org/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
-            <p>&copy; 2025 banchecker.org - All Rights Reserved.</p>
+            <div class="space-x-4 mb-4">
+                <a href="/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
+            </div>
+            <p>&copy; 2024 banchecker.org - All Rights Reserved.</p>
+            <div class="mt-4 space-x-4 text-sm">
+                <a href="https://splitanimage.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Image Splitter</a>
+                <a href="https://coloroverlay.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Color Overlay</a>
+                <a href="https://dcserverlist.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Server List</a>
+                <a href="https://discordbanner.org" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Banner Maker</a>
+            </div>
         </div>
     </footer>
 
-    <script src="js/theme.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/minecraft-checker.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/minecraft-checker.js" defer></script>
+    
 </body>
 </html> 

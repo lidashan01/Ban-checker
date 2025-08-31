@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free YouTube Ban Checker - Check Channel Termination</title>
-    <meta name="description" content="Use our free YouTube Ban Checker to instantly see if a channel is active or has been terminated for community guideline or copyright violations.">
+    <title>YouTube Ban Checker - Check for Channel Termination & Strikes | BanChecker</title>
+    <meta name="description" content="Is a YouTube channel terminated or at risk? Our free checker helps verify the public status of any channel, looking for terminations and strikes. Stay informed.">
     <meta name="google-adsense-account" content="ca-pub-1031868956044790">
     <link rel="icon" href="/images/banchecker-logo.png">
     <link rel="canonical" href="https://banchecker.org/youtube-ban-checker/">
@@ -19,6 +19,95 @@
     gtag('js', new Date());
 
     gtag('config', 'G-86YPJ0X927');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://banchecker.org/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "YouTube Ban Checker"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Check a YouTube Channel's Status",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Enter Channel URL or ID",
+                "text": "Provide the full URL or the ID of the YouTube channel you want to check."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Initiate the Check",
+                "text": "Click the 'Check Status' button to query the YouTube Data API."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Review Channel Status",
+                "text": "The results will indicate if the channel is active, terminated, or hidden."
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is this YouTube Ban Checker tool safe to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our tool is completely safe. It uses the official YouTube Data API to check the public status of a channel and does not require you to log in or provide any private information."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can a terminated YouTube channel be recovered?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It's difficult, but possible. If you believe your channel was terminated in error, you can submit an appeal to YouTube. You need to provide a strong case explaining why the termination was a mistake. Success is not guaranteed and depends on the specific circumstances."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between a Copyright Strike and a Community Guideline Strike?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A Copyright Strike is issued when a copyright holder submits a legal takedown notice for a video that uses their content without permission. A Community Guideline Strike is issued by YouTube for content that violates their policies (e.g., hate speech, nudity, harmful content). Both follow a three-strike system, but they are separate processes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do YouTube Community Guideline strikes expire?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. In most cases, a Community Guideline strike will expire after 90 days. However, you must complete YouTube's Policy Training, and you must not receive another strike for the same policy during that 90-day period. A warning, on the other hand, remains on your channel permanently."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between a Copyright Strike and a Content ID claim?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A Content ID claim is an automated claim made by YouTube's system on behalf of a copyright owner. It usually results in the copyright owner monetizing, tracking, or blocking your video, but it does not negatively affect your channel. A Copyright Strike is a formal, legal takedown request that is much more serious and directly counts towards the three-strikes-and-you're-out rule."
+                }
+            }
+        ]
+    }
     </script>
    
    
@@ -94,99 +183,122 @@
     <main class="container mx-auto px-4 py-8 md:py-16">
         <section id="youtube-checker" class="scroll-mt-24">
             <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Free YouTube Ban Checker</h1>
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">YouTube Channel Ban Checker</h1>
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                    Our free YouTube Ban Checker helps you determine if a channel is active or has been terminated by YouTube. To use this checker, enter one or more channel identifiers (URL, handle, or ID) below, one per line, and click "Check Accounts."
+                    Has a YouTube channel disappeared? Worried about Community Guideline or Copyright strikes? Our free tool checks the public status of any YouTube channel to see if it's active or has been terminated.
                 </p>
             </div>
 
-            <div class="mt-12 max-w-4xl mx-auto">
+            <div class="mt-8">
+                <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto">
+                    <ol class="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                        <li>
+                            <a href="/" class="block transition hover:text-gray-700 dark:hover:text-gray-200">
+                                <span class="sr-only"> Home </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="rtl:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </li>
+                        <li>
+                            <span class="block transition font-semibold text-gray-700 dark:text-gray-200"> YouTube Ban Checker </span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="mt-4 max-w-4xl mx-auto">
                 <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg shadow-lg border border-transparent dark:border-gray-700">
-                    <label for="usernames-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter YouTube Channel Identifiers</label>
-                    <textarea id="usernames-input" rows="8" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="e.g., @GoogleDevelopers&#x0a;youtube.com/user/PewDiePie&#x0a;UC_x5XG1OV2P6uZZ5FSM9Ttw"></textarea>
+                    <label for="username-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter YouTube Channel URL or ID</label>
+                    <input type="text" id="username-input" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="e.g., https://www.youtube.com/channel/UC-lHJZR3Gqxm24_Vd_AJ5Yw">
                     <div class="flex justify-center mt-4">
                         <button id="check-button" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
                             <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                            <span>Check Accounts</span>
+                            <span>Check Status</span>
                         </button>
                     </div>
                 </div>
                 
                 <div id="loading-spinner" class="hidden mt-8 text-center">
                     <div class="inline-block w-8 h-8 border-4 border-blue-500 dark:border-blue-400 border-t-transparent rounded-full animate-spin"></div>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking YouTube channels...</p>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">Checking channel status...</p>
                 </div>
 
-                <div id="results-area" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <label for="good-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Active Channels</label>
-                        <textarea id="good-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
-                        <div class="flex justify-center mt-2">
-                            <button id="copy-good-button" class="bg-green-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                                <span>Copy Active Channels</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="bad-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Terminated / Not Found</label>
-                        <textarea id="bad-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
-                        <div class="flex justify-center mt-2">
-                            <button id="copy-bad-button" class="bg-red-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
-                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                                <span>Copy Banned Channels</span>
-                            </button>
-                        </div>
-                    </div>
+                <div id="results-area" class="hidden mt-8">
+                    <!-- Results will be injected here -->
                 </div>
                 <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">Found this YouTube Ban Checker useful? Please consider sharing it with your friends!</p>
             </div>
         </section>
 
-        <section id="about-tool" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">About YouTube Ban Checker</h2>
-            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a YouTube Ban Checker?</h3>
-                    <p class="mt-2">A YouTube Ban Checker is a tool that verifies if a YouTube channel is publicly accessible or has been terminated. Channel termination is YouTube's most severe penalty, permanently removing all of a user's videos and their channel page. Our YouTube Ban Checker helps you quickly determine a channel's status, which is useful for creators checking their own standing or for users verifying the existence of a channel.</p>
+        <section id="about-youtube-bans" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">The YouTube "Three-Strike" System Explained</h2>
+            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed prose dark:prose-invert prose-blue max-w-none">
+                <p>YouTube's enforcement system is built around a "three strikes" model for both Community Guideline violations and Copyright takedowns. Understanding this system is vital for any creator. It's important to note these two types of strikes are tracked separately.</p>
+                
+                <h3>Community Guideline Strikes vs. Copyright Strikes</h3>
+                <ul>
+                    <li><strong>Community Guideline Strikes:</strong> These are given for content that violates YouTube's policies on things like nudity, hate speech, harassment, or dangerous content. These are issued directly by YouTube's moderation team.</li>
+                    <li><strong>Copyright Strikes:</strong> These are the result of a formal, legal takedown request from a copyright holder who believes your video infringes on their copyrighted work (e.g., music, video clips).</li>
+                </ul>
+
+                <h3>How the Strike Process Works</h3>
+                <p>For Community Guidelines, the process is usually as follows:</p>
+                <ol>
+                    <li><strong>Warning:</strong> The first time you violate a policy, you'll typically receive a warning. This has no penalties, but it stays on your channel permanently. Your offending content will be removed.</li>
+                    <li><strong>First Strike:</strong> If you violate a policy again, you'll get your first strike. This will result in a one-week suspension where you cannot upload videos, start a live stream, or post to the Community tab. The strike expires after 90 days.</li>
+                    <li><strong>Second Strike:</strong> Receiving a second strike within the same 90-day period as your first will result in a two-week suspension with the same restrictions.</li>
+                    <li><strong>Third Strike:</strong> A third strike within the same 90-day window results in your channel being permanently terminated. All your videos are removed, and you are prohibited from creating new channels.</li>
+                </ol>
+                <p>Copyright strikes work similarly, but often without a preceding warning. Three active copyright strikes can also lead to channel termination.</p>
+            </div>
+        </section>
+
+        <section id="creator-safety" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">How to Avoid Strikes and Protect Your Channel</h2>
+            <div class="mt-8 space-y-6 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">1. Understand the Community Guidelines</h3>
+                    <p class="mt-2">Don't just guess. Periodically read through YouTube's official Community Guidelines. Policies on topics like child safety, hate speech, and harmful content are updated regularly.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Use This Tool</h3>
-                    <ol class="list-decimal list-inside mt-2 space-y-1">
-                        <li><strong>Enter Channel Identifier:</strong> Type or paste one or more YouTube channel identifiers into the input box. This can be a channel URL, a handle (e.g., @handle), or a channel ID (e.g., UC...).</li>
-                        <li><strong>Start the Check:</strong> Click the "Check Accounts" button.</li>
-                        <li><strong>View Results:</strong> Our YouTube Ban Checker will sort the inputs into "Active Channels" and "Terminated / Not Found," showing you the status of each.</li>
-                    </ol>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">2. Learn the Basics of "Fair Use" and Copyright</h3>
+                    <p class="mt-2">Using copyrighted material is complex. Understand that "Fair Use" is a legal defense, not a right. Using short clips for commentary, criticism, or parody is often safer than using long, unaltered segments of music or video.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Why Do YouTube Channels Get Terminated?</h3>
-                    <p class="mt-2">YouTube terminates channels for severe or repeated violations of its policies. The most common reasons are receiving three <a href="https://support.google.com/youtube/answer/2814000" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Community Guideline strikes</a> or multiple <a href="https://support.google.com/youtube/answer/2814000" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">copyright strikes</a>. A single case of severe abuse, such as predatory behavior or spam, can also lead to immediate termination. Our YouTube Ban Checker can help diagnose if a channel has been removed for these reasons.</p>
-                </div>
-                 <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Appeal a Channel Termination</h3>
-                    <p class="mt-2">If you believe your channel was terminated in error, you can appeal the decision. You must use the <a href="https://support.google.com/youtube/answer/2802168" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">channel termination appeal form</a>. Do not submit multiple appeals. Provide as much detail as possible to support your case. If the termination was related to copyright strikes, you may need to resolve those claims directly with the copyright holders.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">3. Be Honest with Your Metadata</h3>
+                    <p class="mt-2">Don't use misleading titles, descriptions, tags, or thumbnails to get views (this is called "clickbait"). If your metadata doesn't accurately represent your video, it can be flagged as a violation.</p>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
+        <section id="faq" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Frequently Asked Questions</h2>
             <div class="mt-8 space-y-6">
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this YouTube Ban Checker free to use?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, our YouTube Ban Checker is completely free. We are committed to providing simple and effective tools for online communities.</p>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this YouTube Ban Checker tool safe to use?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, our tool is completely safe. It uses the official YouTube Data API to check the public status of a channel and does not require you to log in or provide any private information.</p>
                 </div>
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Do you store the channels I check?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">No. Your privacy is a priority. We do not log, save, or share any of the channel identifiers you enter into our tool.</p>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Can a terminated YouTube channel be recovered?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">It's difficult, but possible. If you believe your channel was terminated in error, you can submit an appeal to YouTube. You need to provide a strong case explaining why the termination was a mistake. Success is not guaranteed and depends on the specific circumstances.</p>
                 </div>
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How accurate is this tool?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">This tool uses the official YouTube Data API to check channel status, so it is highly accurate. If our YouTube Ban Checker says a channel is terminated, it reflects the channel's current public status on the platform.</p>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">What is the difference between a Copyright Strike and a Community Guideline Strike?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">A Copyright Strike is issued when a copyright holder submits a legal takedown notice for a video that uses their content without permission. A Community Guideline Strike is issued by YouTube for content that violates their policies (e.g., hate speech, nudity, harmful content). Both follow a three-strike system, but they are separate processes.</p>
                 </div>
-                 <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Can this tool see if a single video was removed?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">No, this tool only checks the overall status of the entire channel (active vs. terminated). It cannot detect if individual videos have been removed or made private.</p>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Do YouTube Community Guideline strikes expire?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes. In most cases, a Community Guideline strike will expire after 90 days. However, you must complete YouTube's Policy Training, and you must not receive another strike for the same policy during that 90-day period. A warning, on the other hand, remains on your channel permanently.</p>
+                </div>
+                 <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">What's the difference between a Copyright Strike and a Content ID claim?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">A Content ID claim is an automated claim made by YouTube's system on behalf of a copyright owner. It usually results in the copyright owner monetizing, tracking, or blocking your video, but it does not negatively affect your channel. A Copyright Strike is a formal, legal takedown request that is much more serious and directly counts towards the three-strikes-and-you're-out rule.</p>
                 </div>
             </div>
         </section>
@@ -201,13 +313,22 @@
 
     <footer class="bg-white dark:bg-gray-800/50 mt-20 border-t border-gray-200 dark:border-gray-800">
         <div class="container mx-auto px-4 py-6 text-center text-gray-500 dark:text-gray-400">
-            <a href="https://banchecker.org/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
-            <p>&copy; 2025 banchecker.org - All Rights Reserved.</p>
+            <div class="space-x-4 mb-4">
+                <a href="/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
+            </div>
+            <p>&copy; 2024 banchecker.org - All Rights Reserved.</p>
+            <div class="mt-4 space-x-4 text-sm">
+                <a href="https://splitanimage.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Image Splitter</a>
+                <a href="https://coloroverlay.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Color Overlay</a>
+                <a href="https://dcserverlist.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Server List</a>
+                <a href="https://discordbanner.org" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Banner Maker</a>
+            </div>
         </div>
     </footer>
 
-    <script src="js/theme.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/youtube-ban-checker.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/youtube-checker.js" defer></script>
+    
 </body>
 </html> 

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steam Ban Checker - Check Steam VAC & Game Bans | BanChecker</title>
-    <meta name="description" content="Use our free Steam Ban Checker to instantly see if a Steam account has a VAC ban, game ban, or community ban. Enter a profile URL, vanity URL, or SteamID64.">
+    <title>Steam Ban Checker - Check VAC, Game & Community Bans | BanChecker</title>
+    <meta name="description" content="Instantly check any Steam account for VAC bans, game bans, or community restrictions. Our free tool provides accurate, up-to-date status to protect your gaming profile.">
     <meta name="google-adsense-account" content="ca-pub-1031868956044790">
     <link rel="icon" href="/images/banchecker-logo.png">
     <link rel="canonical" href="https://banchecker.org/steam-ban-checker/">
@@ -19,6 +19,95 @@
     gtag('js', new Date());
 
     gtag('config', 'G-86YPJ0X927');
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://banchecker.org/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Steam Ban Checker"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Check a Steam Account's Ban Status",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Find the Steam Profile Identifier",
+                "text": "Copy the Steam profile URL, custom URL, or SteamID64 of the account you want to check."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Enter the Identifier",
+                "text": "Paste the identifier into the input box on our Steam Ban Checker. If you're checking multiple accounts, place each one on a new line."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Get Instant Results",
+                "text": "Click the 'Check Accounts' button. Our tool will fetch the latest public ban data from the Steam Web API and display a detailed status card for each profile."
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is this Steam Ban Checker safe and accurate?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Our tool is 100% safe as it only uses publicly available information from the official Steam Web API. We never ask for your login details. The accuracy is as high as Steam's public data allows."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between a VAC ban and a Game ban?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A VAC (Valve Anti-Cheat) ban is automated and issued by Valve for detected cheats. It's permanent and non-negotiable. A Game Ban is issued by the specific game's developer for offenses within that game (like griefing or harassment) and its consequences are determined by the developer, not Valve."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can a VAC ban be appealed or removed?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "According to Valve's official policy, VAC bans are permanent and cannot be appealed. They are only issued when the system has definitive proof of cheating software being used. The only exception is if a ban was issued in error, in which case it will be automatically removed by Valve."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens to my inventory and skins if I get a VAC ban?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "If you receive a VAC ban in a specific game (e.g., CS:GO), you can no longer trade or sell items from that game's inventory, and you cannot transfer them to another account. Essentially, they are frozen to that account."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does a ban in one game affect my other games?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Generally, no. A VAC or Game ban is specific to the game (or engine) it was issued for. For example, a VAC ban in Counter-Strike 2 will not prevent you from playing on VAC-secured servers for Dota 2. However, a full Steam Community ban can restrict your access to social features across the entire platform."
+                }
+            }
+        ]
+    }
     </script>
    
    
@@ -55,7 +144,7 @@
             document.body.removeChild(testEl);
         }, 100);
     </script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         /* Add smooth scrolling for anchor links */
         html {
@@ -122,15 +211,38 @@
     <main class="container mx-auto px-4 py-8 md:py-16">
         <section id="steam-checker" class="scroll-mt-24">
             <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Free Steam Ban Checker</h1>
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">Steam Ban & Profile Status Checker</h1>
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                    Our free Steam Ban Checker helps you instantly determine if a Steam account has VAC bans, game bans, or community bans. To check a Steam account status, enter one or more Steam IDs or profile URLs in the box below (one per line) and click the "Check Accounts" button.
+                    Worried about a VAC ban, game ban, or trade restriction? Our free checker instantly pulls the latest data from the Steam API to verify any account's status. Stay informed and protect your valuable game library and items.
                 </p>
             </div>
 
-            <div class="mt-12 max-w-4xl mx-auto">
+            <div class="mt-8">
+                <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto">
+                    <ol class="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                        <li>
+                            <a href="/" class="block transition hover:text-gray-700 dark:hover:text-gray-200">
+                                <span class="sr-only"> Home </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="rtl:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                        </li>
+                        <li>
+                            <span class="block transition font-semibold text-gray-700 dark:text-gray-200"> Steam Ban Checker </span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="mt-4 max-w-4xl mx-auto">
                 <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg shadow-lg border border-transparent dark:border-gray-700">
-                    <label for="usernames-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Steam IDs or Profile URLs</label>
+                    <label for="usernames-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Steam Profile URL, Custom URL, or SteamID64</label>
                     <textarea id="usernames-input" rows="8" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="Enter one Steam ID or profile URL per line, e.g.,&#x0a;76561197960287930&#x0a;https://steamcommunity.com/id/gabelogannewell/"></textarea>
                     <div class="flex justify-center mt-4">
                         <button id="check-button" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
@@ -154,46 +266,65 @@
             </div>
         </section>
 
-        <section id="about-tool" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">About Steam Ban Checker</h2>
-            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a Steam Ban?</h3>
-                    <p class="mt-2">A Steam ban can come in several forms: VAC (Valve Anti-Cheat) bans for cheating in games, Game bans issued by developers, Community bans that restrict social features, and Trade bans that prevent trading items. VAC bans are permanent and prevent you from playing on secure servers for specific games. Our Steam Ban Checker helps you identify accounts with any of these restrictions.</p>
+        <section id="about-steam-bans" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Understanding Steam Bans: A Player's Guide</h2>
+            <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed prose dark:prose-invert prose-blue max-w-none">
+                <h3>The Different Types of Steam Bans</h3>
+                <p>On Steam, not all bans are created equal. They vary in severity and scope, and understanding the differences is crucial for any player. Our Steam Ban Checker helps identify these specific types:</p>
+                <ul>
+                    <li><strong>VAC (Valve Anti-Cheat) Ban:</strong> This is the most serious ban, issued automatically when Valve's system detects cheat software on a player's computer. It's permanent, non-negotiable, and prevents you from playing on VAC-secured servers for the specific game you were banned from.</li>
+                    <li><strong>Game Ban:</strong> Issued directly by a game's developer, not Valve. Reasons can range from griefing and harassment to exploiting bugs. The consequences are up to the developer and might mean you can't play that specific game online, but it doesn't affect your other games.</li>
+                    <li><strong>Community & Trade Bans:</strong> These bans restrict your ability to participate in the Steam Community. A community ban might block you from posting in discussions or uploading screenshots. A trade ban, often a result of scamming, prevents you from trading or using the Steam Market.</li>
+                </ul>
+
+                <h3>Beyond Bans: What is the Steam "Trust Factor"?</h3>
+                <p>Separate from explicit bans, many games like Counter-Strike 2 use a hidden "Trust Factor." This is a complex rating based on your in-game behavior, account age, other games played, and reports against you. A low Trust Factor won't ban you, but it will matchmake you with other low-trust players, often leading to a much poorer game experience. While our tool checks for hard bans, maintaining a high Trust Factor is key to enjoying multiplayer games.</p>
+
+                <h3>The Consequences: What You Actually Lose</h3>
+                <p>A ban is more than just a slap on the wrist. For the game you are VAC banned in, you lose the ability to play on official servers, and your valuable in-game items (like skins) become untradeable and unsellable. They are essentially locked to your banned account forever. This makes protecting your account not just about playing, but about safeguarding a potentially valuable digital collection.</p>
+            </div>
+        </section>
+
+        <section id="account-protection" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">How to Safeguard Your Steam Account</h2>
+            <div class="mt-8 space-y-6 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">1. Enable Steam Guard Two-Factor Authentication</h3>
+                    <p class="mt-2">This is the single most important step. Use the mobile authenticator option. It provides the best level of security and is required for instant trading and market listings.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Use This Tool</h3>
-                    <ol class="list-decimal list-inside mt-2 space-y-1">
-                        <li><strong>Enter Steam IDs:</strong> Type or paste one or more Steam IDs or profile URLs into the input box above. Make sure each ID is on a new line.</li>
-                        <li><strong>Start the Check:</strong> Click the "Check Accounts" button.</li>
-                        <li><strong>View Results:</strong> The tool will process the list and sort the accounts into two categories: "Clean Accounts" and "Banned / Suspended / Not Found".</li>
-                    </ol>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">2. Beware of Phishing and API Scams</h3>
+                    <p class="mt-2">Never log into your Steam account through a link sent by someone else. Scammers create fake login pages to steal your details. Also, be extremely cautious about giving any third-party site access to your Steam API key, as it can be used to monitor and manipulate your trade offers.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Why Do Steam Accounts Get Banned?</h3>
-                    <p class="mt-2">Steam accounts are typically banned for cheating (VAC bans), griefing, scamming, harassment, or violating Steam's terms of service. VAC bans are issued automatically when cheat software is detected. Game bans are issued by individual game developers for various offenses. To avoid bans, always play fair, never use cheating software, and follow community guidelines.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Appeal a Steam Ban</h3>
-                    <p class="mt-2">VAC bans are permanent and cannot be appealed - they are only issued when cheat software is definitively detected. Game bans must be appealed directly to the game developer, not Valve. If you believe your account was compromised, contact <a href="https://help.steampowered.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Steam Support</a> immediately to secure your account.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">3. Keep Your PC Clean</h3>
+                    <p class="mt-2">Don't download or use any software that claims to modify games or give you an unfair advantage. This includes skin changers, aimbots, or scripts. A VAC ban is automated and merciless. It's simply not worth the risk.</p>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
+        <section id="faq" class="mt-20 max-w-4xl mx-auto scroll-mt-24">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">Frequently Asked Questions</h2>
             <div class="mt-8 space-y-6">
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this Steam Ban Checker free to use?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, absolutely. Our Steam Ban Checker is 100% free to use. We believe essential gaming tools should be accessible to everyone.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this Steam Ban Checker safe and accurate?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes. Our tool is 100% safe as it only uses publicly available information from the official Steam Web API. We never ask for your login details. The accuracy is as high as Steam's public data allows.</p>
                 </div>
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Do you store the Steam IDs I enter?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">No. We respect your privacy. All checks are performed in real-time, and we do not log, store, or share any of the Steam IDs you enter into our checker.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">What's the difference between a VAC ban and a Game ban?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">A VAC (Valve Anti-Cheat) ban is automated and issued by Valve for detected cheats. It's permanent and non-negotiable. A Game Ban is issued by the specific game's developer for offenses within that game (like griefing or harassment) and its consequences are determined by the developer, not Valve.</p>
                 </div>
-                <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How accurate is this tool?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">Our tool uses official Steam Web API data to check ban status. The information is as accurate as what Steam provides publicly. However, some profile information may be private or restricted, which could affect the results.</p>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Can a VAC ban be appealed or removed?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">According to Valve's official policy, VAC bans are permanent and cannot be appealed. They are only issued when the system has definitive proof of cheating software being used. The only exception is if a ban was issued in error, in which case it will be automatically removed by Valve.</p>
+                </div>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">What happens to my inventory and skins if I get a VAC ban?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">If you receive a VAC ban in a specific game (e.g., CS:GO), you can no longer trade or sell items from that game's inventory, and you cannot transfer them to another account. Essentially, they are frozen to that account.</p>
+                </div>
+                <div class="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Does a ban in one game affect my other games?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Generally, no. A VAC or Game ban is specific to the game (or engine) it was issued for. For example, a VAC ban in Counter-Strike 2 will not prevent you from playing on VAC-secured servers for Dota 2. However, a full Steam Community ban can restrict your access to social features across the entire platform.</p>
                 </div>
             </div>
         </section>
@@ -208,18 +339,22 @@
 
     <footer class="bg-white dark:bg-gray-800/50 mt-20 border-t border-gray-200 dark:border-gray-800">
         <div class="container mx-auto px-4 py-6 text-center text-gray-500 dark:text-gray-400">
-            <a href="https://banchecker.org/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
-            <p>&copy; 2025 banchecker.org - All Rights Reserved.</p>
-            <a href="https://splitanimage.com" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Image Spliter </a>
-            <a href="https://coloroverlay.com" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Color Overlay </a>
-            <a href="https://dcserverlist.com" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Server List </a>
-            <a href="https://discordbanner.org" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Banner Maker </a>
+            <div class="space-x-4 mb-4">
+                <a href="/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
+            </div>
+            <p>&copy; 2024 banchecker.org - All Rights Reserved.</p>
+            <div class="mt-4 space-x-4 text-sm">
+                <a href="https://splitanimage.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Image Splitter</a>
+                <a href="https://coloroverlay.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Color Overlay</a>
+                <a href="https://dcserverlist.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Server List</a>
+                <a href="https://discordbanner.org" target="_blank" rel="noopener" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Banner Maker</a>
+            </div>
         </div>
     </footer>
 
-    <script src="js/theme.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/steam-checker.js" defer></script>
+    <script src="/js/theme.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/steam-checker.js" defer></script>
     
 </body>
 </html> 
