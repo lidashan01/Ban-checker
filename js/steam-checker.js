@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const checkButton = document.getElementById('check-button') || 
                        document.querySelector('button[value="Check Ban"]') ||
-                       document.querySelector('input[value="Check Ban"]') ||
-                       document.querySelector('button:contains("Check")');
+                       document.querySelector('input[value="Check Ban"]');
     
     const loadingSpinner = document.getElementById('loading-spinner');
     const resultsArea = document.getElementById('results-area');
@@ -30,14 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // If no check button found, create a fallback or use any button
+    // If no check button found, try to find one by text content
     let actualCheckButton = checkButton;
     if (!checkButton) {
-        // Try to find any button on the page
+        // Try to find button by text content
         const buttons = document.querySelectorAll('button, input[type="button"], input[type="submit"]');
-        if (buttons.length > 0) {
+        for (const btn of buttons) {
+            const text = (btn.textContent || btn.value || '').toLowerCase();
+            if (text.includes('check') || text.includes('ban')) {
+                actualCheckButton = btn;
+                console.log('[Steam Checker] Found button by text:', text, btn);
+                break;
+            }
+        }
+        
+        // If still no button found, use the first available button
+        if (!actualCheckButton && buttons.length > 0) {
             actualCheckButton = buttons[0];
-            console.log('[Steam Checker] Using fallback button:', actualCheckButton);
+            console.log('[Steam Checker] Using first available button:', actualCheckButton);
         }
     }
 
