@@ -193,14 +193,7 @@
 
     <main class="container mx-auto px-4 py-8 md:py-16">
         <section id="steam-checker" class="scroll-mt-24">
-            <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">Steam Ban & Profile Status Checker</h1>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                    Worried about a VAC ban, game ban, or trade restriction? Our free checker instantly pulls the latest data from the Steam API to verify any account's status. Stay informed and protect your valuable game library and items.
-                </p>
-            </div>
-
-            <div class="mt-8">
+            <div class="mb-8">
                 <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto">
                     <ol class="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
                         <li>
@@ -222,8 +215,14 @@
                     </ol>
                 </nav>
             </div>
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">Steam Ban & Profile Status Checker</h1>
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                    Worried about a VAC ban, game ban, or trade restriction? Our free checker instantly pulls the latest data from the Steam API to verify any account's status. Stay informed and protect your valuable game library and items.
+                </p>
+            </div>
 
-            <div class="mt-4 max-w-4xl mx-auto">
+            <div class="mt-8 max-w-4xl mx-auto">
                 <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg shadow-lg border border-transparent dark:border-gray-700">
                     <label for="usernames-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Steam Profile URL, Custom URL, or SteamID64</label>
                     <textarea id="usernames-input" rows="8" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="Enter one Steam ID or profile URL per line, e.g.,&#x0a;76561197960287930&#x0a;https://steamcommunity.com/id/gabelogannewell/"></textarea>
