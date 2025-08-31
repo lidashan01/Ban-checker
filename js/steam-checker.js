@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('[Steam Checker] Script loaded');
+    
     // --- DOM Elements ---
     const inputElement = document.getElementById('steam-input');
     const checkButton = document.getElementById('check-button');
@@ -6,10 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsArea = document.getElementById('results-area');
     const resultsContainer = document.getElementById('results-container');
 
+    console.log('[Steam Checker] Elements found:', {
+        inputElement: !!inputElement,
+        checkButton: !!checkButton,
+        loadingSpinner: !!loadingSpinner,
+        resultsArea: !!resultsArea,
+        resultsContainer: !!resultsContainer
+    });
+
     // Only initialize if we're on the Steam checker page
     if (!inputElement || !checkButton) {
+        console.log('[Steam Checker] Required elements not found, skipping initialization');
         return;
     }
+
+    console.log('[Steam Checker] Initializing...');
 
     // --- Helper Functions ---
 
