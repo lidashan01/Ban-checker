@@ -2,8 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('[Steam Checker] Script loaded');
     
     // --- DOM Elements ---
-    const inputElement = document.getElementById('steam-input');
-    const checkButton = document.getElementById('check-button');
+    // Try multiple selectors to find elements in different page versions
+    const inputElement = document.getElementById('steam-input') || 
+                        document.querySelector('input[placeholder*="Steam ID" i]') ||
+                        document.querySelector('input[placeholder*="7656" i]');
+    
+    const checkButton = document.getElementById('check-button') || 
+                       document.querySelector('button[value="Check Ban"]') ||
+                       document.querySelector('input[value="Check Ban"]') ||
+                       document.querySelector('button:contains("Check")');
+    
     const loadingSpinner = document.getElementById('loading-spinner');
     const resultsArea = document.getElementById('results-area');
     const resultsContainer = document.getElementById('results-container');
@@ -16,10 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsContainer: !!resultsContainer
     });
 
-    // Only initialize if we're on the Steam checker page
-    if (!inputElement || !checkButton) {
-        console.log('[Steam Checker] Required elements not found, skipping initialization');
+    // Only initialize if we can find at least an input element
+    if (!inputElement) {
+        console.log('[Steam Checker] No input element found, skipping initialization');
         return;
+    }
+
+    // If no check button found, create a fallback or use any button
+    let actualCheckButton = checkButton;
+    if (!checkButton) {
+        // Try to find any button on the page
+        const buttons = document.querySelectorAll('button, input[type="button"], input[type="submit"]');
+        if (buttons.length > 0) {
+            actualCheckButton = buttons[0];
+            console.log('[Steam Checker] Using fallback button:', actualCheckButton);
+        }
     }
 
     console.log('[Steam Checker] Initializing...');
@@ -115,9 +134,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (loadingSpinner) {
             loadingSpinner.classList.remove('hidden');
         }
-        if (resultsContainer) {
-            resultsContainer.innerHTML = '';
+        
+        // Create results container if it doesn't exist
+        let actualResultsContainer = resultsContainer;
+        if (!resultsContainer) {
+            actualResultsContainer = document.createElement('div');
+            actualResultsContainer.id = 'results-container-fallback';
+            actualResultsContainer.style.marginTop = '20px';
+            inputElement.parentNode.appendChild(actualResultsContainer);
+            console.log('[Steam Checker] Created fallback results container');
         }
+        
+        actualResultsContainer.innerHTML = '';
 
         // Process each line
         for (const line of lines) {
@@ -125,13 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!parsed) continue;
             
             if (parsed.type === 'steamid64') {
-                if (resultsContainer) {
-                    resultsContainer.appendChild(renderIdCard(line, parsed.value));
-                }
+                actualResultsContainer.appendChild(renderIdCard(line, parsed.value));
             } else {
-                if (resultsContainer) {
-                    resultsContainer.appendChild(renderVanityNotice(line, parsed.value));
-                }
+                actualResultsContainer.appendChild(renderVanityNotice(line, parsed.value));
             }
         }
 
@@ -145,5 +169,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- Event Listeners ---
-    checkButton.addEventListener('click', handleCheck);
+    if (actualCheckButton) {
+        actualCheckButton.addEventListener('click', handleCheck);
+        console.log('[Steam Checker] Event listener attached to button');
+    } else {
+        console.log('[Steam Checker] No button found for event listener');
+    }
 }); 
