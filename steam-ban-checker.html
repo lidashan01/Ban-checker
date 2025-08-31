@@ -9,18 +9,6 @@
     <link rel="icon" href="/images/banchecker-logo.png">
     <link rel="canonical" href="https://banchecker.org/steam-ban-checker/">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fallback Tailwind CSS -->
-    <script>
-        // Check if Tailwind loaded, if not load from alternative CDN
-        setTimeout(() => {
-            if (typeof tailwind === 'undefined') {
-                console.warn('Primary Tailwind CSS failed, loading fallback...');
-                const fallbackScript = document.createElement('script');
-                fallbackScript.src = 'https://unpkg.com/tailwindcss@3.4.0/lib/index.js';
-                document.head.appendChild(fallbackScript);
-            }
-        }, 2000);
-    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1031868956044790"
      crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
@@ -41,63 +29,8 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
-        
-        // Check if Tailwind CSS is working
-        setTimeout(() => {
-            const testElement = document.createElement('div');
-            testElement.className = 'bg-blue-500';
-            testElement.style.display = 'none';
-            document.body.appendChild(testElement);
-            
-            const computedStyle = window.getComputedStyle(testElement);
-            const bgColor = computedStyle.backgroundColor;
-            
-            if (bgColor === 'rgb(59, 130, 246)' || bgColor === '#3b82f6') {
-                // Tailwind is working
-                document.body.classList.add('tailwind-loaded');
-                console.log('✅ Tailwind CSS loaded successfully');
-            } else {
-                // Tailwind failed, use fallback
-                console.warn('❌ Tailwind CSS failed to load, using fallback styles');
-                document.body.classList.remove('tailwind-loaded');
-            }
-            
-            document.body.removeChild(testElement);
-        }, 1000);
     </script>
     <link rel="stylesheet" href="/css/style.css">
-    <!-- Fallback CSS for when Tailwind fails to load -->
-    <style>
-        /* Basic fallback styles */
-        .fallback-container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        .fallback-header { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1rem 0; }
-        .fallback-main { padding: 2rem 0; }
-        .fallback-card { background: #fff; border-radius: 8px; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 1rem 0; }
-        .fallback-input { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1rem; }
-        .fallback-button { background: #2563eb; color: white; padding: 0.75rem 2rem; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 1rem; }
-        .fallback-button:hover { background: #1d4ed8; }
-        .fallback-title { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; text-align: center; }
-        .fallback-text { color: #6b7280; line-height: 1.6; }
-        .fallback-hidden { display: none; }
-        
-        /* Apply fallback styles when Tailwind is not loaded */
-        body:not(.tailwind-loaded) .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        body:not(.tailwind-loaded) header { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1rem 0; }
-        body:not(.tailwind-loaded) main { padding: 2rem 0; }
-        body:not(.tailwind-loaded) .bg-white { background: #fff !important; }
-        body:not(.tailwind-loaded) .shadow-lg { box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important; }
-        body:not(.tailwind-loaded) .rounded-lg { border-radius: 8px !important; }
-        body:not(.tailwind-loaded) .p-8 { padding: 2rem !important; }
-        body:not(.tailwind-loaded) .px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
-        body:not(.tailwind-loaded) .py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
-        body:not(.tailwind-loaded) .mt-6 { margin-top: 1.5rem !important; }
-        body:not(.tailwind-loaded) .text-lg { font-size: 1.125rem !important; }
-        body:not(.tailwind-loaded) .font-bold { font-weight: bold !important; }
-        body:not(.tailwind-loaded) .text-center { text-align: center !important; }
-        body:not(.tailwind-loaded) .bg-blue-600 { background: #2563eb !important; }
-        body:not(.tailwind-loaded) .text-white { color: white !important; }
-        body:not(.tailwind-loaded) .hidden { display: none !important; }
-    </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-500">
 

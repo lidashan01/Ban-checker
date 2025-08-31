@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Show loading state
         if (loadingSpinner) {
-            loadingSpinner.classList.remove('hidden');
+        loadingSpinner.classList.remove('hidden');
         }
         
         // Create results container if it doesn't exist
@@ -170,10 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hide loading and show results
         if (loadingSpinner) {
-            loadingSpinner.classList.add('hidden');
+        loadingSpinner.classList.add('hidden');
         }
         if (resultsArea) {
-            resultsArea.classList.remove('hidden');
+        resultsArea.classList.remove('hidden');
         }
     };
 
