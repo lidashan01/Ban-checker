@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkButton = document.getElementById('check-button');
     const loadingSpinner = document.getElementById('loading-spinner');
     const resultsArea = document.getElementById('results-area');
+    const resultsContainer = document.getElementById('results-container');
 
     // Only initialize if we're on the Steam checker page
     if (!usernamesInput || !checkButton) {
@@ -102,9 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingSpinner.classList.remove('hidden');
         }
         
-        // Clear and prepare results area
-        resultsArea.innerHTML = '';
-        resultsArea.className = 'mt-8 space-y-4'; // Change layout to single column for cards
+        // Clear results container
+        if (resultsContainer) {
+            resultsContainer.innerHTML = '';
+        }
 
         // Process each line
         for (const line of lines) {
@@ -112,9 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!parsed) continue;
             
             if (parsed.type === 'steamid64') {
-                resultsArea.appendChild(renderIdCard(line, parsed.value));
+                if (resultsContainer) {
+                    resultsContainer.appendChild(renderIdCard(line, parsed.value));
+                }
             } else {
-                resultsArea.appendChild(renderVanityNotice(line, parsed.value));
+                if (resultsContainer) {
+                    resultsContainer.appendChild(renderVanityNotice(line, parsed.value));
+                }
             }
         }
 
