@@ -229,9 +229,23 @@
                     <p class="text-gray-600 dark:text-gray-400 mt-2">Checking account status...</p>
                 </div>
 
-                <div id="results-area" class="hidden mt-8">
-                    <!-- Results will be injected here -->
+                <div id="results-area" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="good-accounts" class="block text-lg font-medium text-green-600 dark:text-green-400">Active Accounts</label>
+                            <button id="copy-good-button" class="px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600">Copy</button>
+                        </div>
+                        <textarea id="good-accounts" rows="10" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800" readonly></textarea>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="bad-accounts" class="block text-lg font-medium text-red-600 dark:text-red-400">Banned / Shadowbanned</label>
+                            <button id="copy-bad-button" class="px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600">Copy</button>
+                        </div>
+                        <textarea id="bad-accounts" rows="10" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800" readonly></textarea>
+                    </div>
                 </div>
+                
                 <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">Found this TikTok Ban Checker useful? Please consider sharing it with your friends!</p>
             </div>
         </section>
