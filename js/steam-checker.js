@@ -1,56 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('[Steam Checker] Script loaded');
-    
     // --- DOM Elements ---
-    // Try multiple selectors to find elements in different page versions
-    const inputElement = document.getElementById('steam-input') || 
-                        document.querySelector('input[placeholder*="Steam ID" i]') ||
-                        document.querySelector('input[placeholder*="7656" i]');
-    
-    const checkButton = document.getElementById('check-button') || 
-                       document.querySelector('button[value="Check Ban"]') ||
-                       document.querySelector('input[value="Check Ban"]');
-    
+    const usernamesInput = document.getElementById('usernames-input');
+    const checkButton = document.getElementById('check-button');
     const loadingSpinner = document.getElementById('loading-spinner');
     const resultsArea = document.getElementById('results-area');
-    const resultsContainer = document.getElementById('results-container');
 
-    console.log('[Steam Checker] Elements found:', {
-        inputElement: !!inputElement,
-        checkButton: !!checkButton,
-        loadingSpinner: !!loadingSpinner,
-        resultsArea: !!resultsArea,
-        resultsContainer: !!resultsContainer
-    });
-
-    // Only initialize if we can find at least an input element
-    if (!inputElement) {
-        console.log('[Steam Checker] No input element found, skipping initialization');
+    // Only initialize if we're on the Steam checker page
+    if (!usernamesInput || !checkButton) {
         return;
     }
-
-    // If no check button found, try to find one by text content
-    let actualCheckButton = checkButton;
-    if (!checkButton) {
-        // Try to find button by text content
-        const buttons = document.querySelectorAll('button, input[type="button"], input[type="submit"]');
-        for (const btn of buttons) {
-            const text = (btn.textContent || btn.value || '').toLowerCase();
-            if (text.includes('check') || text.includes('ban')) {
-                actualCheckButton = btn;
-                console.log('[Steam Checker] Found button by text:', text, btn);
-                break;
-            }
-        }
-        
-        // If still no button found, use the first available button
-        if (!actualCheckButton && buttons.length > 0) {
-            actualCheckButton = buttons[0];
-            console.log('[Steam Checker] Using first available button:', actualCheckButton);
-        }
-    }
-
-    console.log('[Steam Checker] Initializing...');
 
     // --- Helper Functions ---
 
@@ -88,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createResultCard = (htmlContent) => {
         const card = document.createElement('div');
-        card.className = 'p-4 bg-white dark:bg-gray-800/50 rounded-lg shadow border border-transparent dark:border-gray-700';
+        card.className = 'p-4 bg-white dark:bg-gray-800/50 rounded-lg shadow border border-transparent dark:border-gray-700 mb-4';
         card.innerHTML = htmlContent;
         return card;
     };
@@ -127,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Main Check Function ---
     const handleCheck = async () => {
-        const raw = inputElement.value.trim();
+        const raw = usernamesInput.value.trim();
         if (!raw) {
             alert('Please enter a Steam profile URL, vanity URL, or SteamID64.');
             return;
@@ -141,20 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Show loading state
         if (loadingSpinner) {
-        loadingSpinner.classList.remove('hidden');
+            loadingSpinner.classList.remove('hidden');
         }
         
-        // Create results container if it doesn't exist
-        let actualResultsContainer = resultsContainer;
-        if (!resultsContainer) {
-            actualResultsContainer = document.createElement('div');
-            actualResultsContainer.id = 'results-container-fallback';
-            actualResultsContainer.style.marginTop = '20px';
-            inputElement.parentNode.appendChild(actualResultsContainer);
-            console.log('[Steam Checker] Created fallback results container');
-        }
-        
-        actualResultsContainer.innerHTML = '';
+        // Clear and prepare results area
+        resultsArea.innerHTML = '';
+        resultsArea.className = 'mt-8 space-y-4'; // Change layout to single column for cards
 
         // Process each line
         for (const line of lines) {
@@ -162,26 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!parsed) continue;
             
             if (parsed.type === 'steamid64') {
-                actualResultsContainer.appendChild(renderIdCard(line, parsed.value));
+                resultsArea.appendChild(renderIdCard(line, parsed.value));
             } else {
-                actualResultsContainer.appendChild(renderVanityNotice(line, parsed.value));
+                resultsArea.appendChild(renderVanityNotice(line, parsed.value));
             }
         }
 
         // Hide loading and show results
         if (loadingSpinner) {
-        loadingSpinner.classList.add('hidden');
+            loadingSpinner.classList.add('hidden');
         }
         if (resultsArea) {
-        resultsArea.classList.remove('hidden');
+            resultsArea.classList.remove('hidden');
         }
     };
 
     // --- Event Listeners ---
-    if (actualCheckButton) {
-        actualCheckButton.addEventListener('click', handleCheck);
-        console.log('[Steam Checker] Event listener attached to button');
-    } else {
-        console.log('[Steam Checker] No button found for event listener');
-    }
+    checkButton.addEventListener('click', handleCheck);
 }); 

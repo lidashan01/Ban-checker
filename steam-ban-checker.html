@@ -108,18 +108,18 @@
             <div class="max-w-3xl mx-auto text-center">
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">Free Steam Ban Checker</h1>
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
-                    Our free Steam Ban Checker allows you to instantly check any Steam account for VAC, game, and community bans. To check a Steam account's ban status, enter a profile URL, custom vanity URL, or SteamID64 in the box below and click the "Check Status" button.
+                    Our free Steam Ban Checker helps you instantly determine if a Steam account has VAC bans, game bans, or community bans. To check a Steam account status, enter one or more Steam IDs or profile URLs in the box below (one per line) and click the "Check Accounts" button.
                 </p>
             </div>
 
             <div class="mt-12 max-w-4xl mx-auto">
                 <div class="bg-white dark:bg-gray-800/50 p-8 rounded-lg shadow-lg border border-transparent dark:border-gray-700">
-                    <label for="steam-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Steam Profile / ID</label>
-                    <textarea id="steam-input" rows="5" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="e.g., https://steamcommunity.com/id/gabelogannewell/&#x0a;or gabelogannewell&#x0a;or 76561197960287930"></textarea>
+                    <label for="usernames-input" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Enter Steam IDs or Profile URLs</label>
+                    <textarea id="usernames-input" rows="8" class="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow" placeholder="Enter one Steam ID or profile URL per line, e.g.,&#x0a;76561197960287930&#x0a;https://steamcommunity.com/id/gabelogannewell/"></textarea>
                     <div class="flex justify-center mt-4">
                         <button id="check-button" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
                             <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                            <span>Check Status</span>
+                            <span>Check Accounts</span>
                         </button>
                     </div>
                 </div>
@@ -129,9 +129,26 @@
                     <p class="text-gray-600 dark:text-gray-400 mt-2">Checking Steam accounts...</p>
                 </div>
 
-                <div id="results-area" class="hidden mt-8">
-                    <div id="results-container" class="space-y-4">
-                        <!-- Result cards will be injected here by JavaScript -->
+                <div id="results-area" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label for="good-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Clean Accounts</label>
+                        <textarea id="good-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
+                        <div class="flex justify-center mt-2">
+                            <button id="copy-good-button" class="bg-green-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
+                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                <span>Copy Clean Accounts</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="bad-accounts" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Banned / Suspended / Not Found</label>
+                        <textarea id="bad-accounts" rows="10" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-100/50 dark:bg-gray-800 text-gray-700 dark:text-gray-300" readonly></textarea>
+                        <div class="flex justify-center mt-2">
+                            <button id="copy-bad-button" class="bg-red-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:focus:ring-offset-gray-900 transition-all duration-300 flex items-center justify-center">
+                                <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                                <span>Copy Banned Accounts</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">Found this Steam Ban Checker useful? Please consider sharing it with your friends!</p>
@@ -139,27 +156,27 @@
         </section>
 
         <section id="about-tool" class="mt-20 max-w-3xl mx-auto scroll-mt-24">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">About The Steam Ban Checker</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white text-center">About Steam Ban Checker</h2>
             <div class="mt-8 space-y-8 text-left text-gray-600 dark:text-gray-300 leading-relaxed">
                 <div>
                     <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">What is a Steam Ban?</h3>
-                    <p class="mt-2">Steam bans come in several forms, most notably VAC (Valve Anti-Cheat) Bans, Game Bans, and Community Bans. A VAC ban is permanent and prevents playing on secure servers for a specific game. A Game Ban is issued by a developer for non-cheating offenses, while a Community Ban restricts social features. Our Steam Ban Checker verifies all these statuses.</p>
+                    <p class="mt-2">A Steam ban can come in several forms: VAC (Valve Anti-Cheat) bans for cheating in games, Game bans issued by developers, Community bans that restrict social features, and Trade bans that prevent trading items. VAC bans are permanent and prevent you from playing on secure servers for specific games. Our Steam Ban Checker helps you identify accounts with any of these restrictions.</p>
                 </div>
                 <div>
                     <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Use This Tool</h3>
                     <ol class="list-decimal list-inside mt-2 space-y-1">
-                        <li><strong>Enter Profile Info:</strong> Type or paste a user's SteamID64, custom URL, or full profile link into the box. You can check multiple accounts by entering each one on a new line.</li>
-                        <li><strong>Start the Check:</strong> Click the "Check Status" button.</li>
-                        <li><strong>View Results:</strong> The tool will display a card for each user, showing their ban status, including the type of ban (VAC, Game, etc.) and other details.</li>
+                        <li><strong>Enter Steam IDs:</strong> Type or paste one or more Steam IDs or profile URLs into the input box above. Make sure each ID is on a new line.</li>
+                        <li><strong>Start the Check:</strong> Click the "Check Accounts" button.</li>
+                        <li><strong>View Results:</strong> The tool will process the list and sort the accounts into two categories: "Clean Accounts" and "Banned / Suspended / Not Found".</li>
                     </ol>
                 </div>
                 <div>
                     <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Why Do Steam Accounts Get Banned?</h3>
-                    <p class="mt-2">The most common reason for a permanent ban is cheating in a VAC-secured game. Other reasons include griefing, scamming, harassing other players, or violating Steam's Subscriber Agreement. To avoid a ban, always play fair, never use third-party cheating software, and respect other members of the community. This Steam Ban Checker helps you verify if an account has a clean record.</p>
+                    <p class="mt-2">Steam accounts are typically banned for cheating (VAC bans), griefing, scamming, harassment, or violating Steam's terms of service. VAC bans are issued automatically when cheat software is detected. Game bans are issued by individual game developers for various offenses. To avoid bans, always play fair, never use cheating software, and follow community guidelines.</p>
                 </div>
                 <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Appeal a Ban</h3>
-                    <p class="mt-2">According to Valve, VAC bans are permanent and non-negotiable and cannot be appealed. For Game Bans, you must contact the specific game's developer, as Valve does not handle these. If you believe your account was hijacked, you should first lock your account and then contact <a href="https://help.steampowered.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Steam Support</a> to recover it. An incorrectly applied ban may be automatically removed, but this is rare.</p>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">How to Appeal a Steam Ban</h3>
+                    <p class="mt-2">VAC bans are permanent and cannot be appealed - they are only issued when cheat software is definitively detected. Game bans must be appealed directly to the game developer, not Valve. If you believe your account was compromised, contact <a href="https://help.steampowered.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Steam Support</a> immediately to secure your account.</p>
                 </div>
             </div>
         </section>
@@ -169,19 +186,19 @@
             <div class="mt-8 space-y-6">
                 <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
                     <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Is this Steam Ban Checker free to use?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, our Steam Ban Checker is completely free. We aim to provide valuable tools to the gaming community without any cost.</p>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Yes, absolutely. Our Steam Ban Checker is 100% free to use. We believe essential gaming tools should be accessible to everyone.</p>
                 </div>
                 <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Do you store the profiles I check?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">No, your privacy is paramount. We do not log or store any Steam profiles or IDs you enter. All checks are processed in real-time and forgotten immediately.</p>
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Do you store the Steam IDs I enter?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">No. We respect your privacy. All checks are performed in real-time, and we do not log, store, or share any of the Steam IDs you enter into our checker.</p>
                 </div>
                 <div class="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-transparent dark:border-gray-700">
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How does the Steam Ban Checker work?</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300">Our tool communicates directly with the official Steam Web API using a secure server-side request. It converts your input to a SteamID64 and then queries Valve's database for up-to-date ban information, ensuring the data is accurate and reliable.</p>
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">How accurate is this tool?</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300">Our tool uses official Steam Web API data to check ban status. The information is as accurate as what Steam provides publicly. However, some profile information may be private or restricted, which could affect the results.</p>
                 </div>
             </div>
         </section>
-        
+
         <section id="about-banchecker" class="mt-20 max-w-3xl mx-auto text-center">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-white">About BanChecker.org</h2>
             <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -192,8 +209,12 @@
 
     <footer class="bg-white dark:bg-gray-800/50 mt-20 border-t border-gray-200 dark:border-gray-800">
         <div class="container mx-auto px-4 py-6 text-center text-gray-500 dark:text-gray-400">
-            <a href="/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
+            <a href="https://banchecker.org/privacy-policy/" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Privacy Policy</a>
             <p>&copy; 2025 banchecker.org - All Rights Reserved.</p>
+            <a href="https://splitanimage.com" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Image Spliter </a>
+            <a href="https://coloroverlay.com" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Color Overlay </a>
+            <a href="https://dcserverlist.com" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Server List </a>
+            <a href="https://discordbanner.org" class="text-gray-500 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400">Discord Banner Maker </a>
         </div>
     </footer>
 
